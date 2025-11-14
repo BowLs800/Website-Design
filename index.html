@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ledstar Inc. – Dynamic Message Signs & Traffic Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Tailwind -->
+  <link rel="stylesheet" href="./dist/output.css">
+
+  <!-- Fade-in Animation -->
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".fade-up");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.15 });
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <script>
+    document.addEventListener("scroll", () => {
+      const header = document.getElementById("header");
+      if (window.scrollY > 40) header.classList.add("shadow-lg", "h-14");
+      else header.classList.remove("shadow-lg", "h-14");
+    });
+  </script>
+</head>
+
+
+<body class="text-slate-800 bg-white">
+
+<!-- ======================================================= -->
+<!-- ======================= HEADER ======================== -->
+<!-- ======================================================= -->
+
+<header id="header"
+        class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200 transition-all duration-300">
+
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <div class="w-5 h-5 rounded-md bg-gradient-to-br from-blue-600 to-cyan-400"></div>
+      <span class="font-semibold tracking-widest uppercase">Ledstar</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+      <a href="#products" class="hover:text-blue-600 transition">Products</a>
+      <a href="#industries" class="hover:text-blue-600 transition">Industries</a>
+      <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+      <a href="#about" class="hover:text-blue-600 transition">About</a>
+      <a href="#engineering" class="hover:text-blue-600 transition">Engineering</a>
+      <a href="./contact.html" class="hover:text-blue-600 transition">Contact</a>
+      <a href="#quote"
+         class="px-4 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition font-medium">
+        Request Quote
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn"
+            class="md:hidden px-3 py-2 border border-slate-300 rounded-lg text-sm">
+      Menu
+    </button>
+
+
+  </div>
+</header>
+
+
+
+<!-- ======================================================= -->
+<!-- ======================== HERO ========================= -->
+<!-- ======================================================= -->
+
+<section class="bg-gradient-to-br from-blue-700 to-slate-900 text-white py-20">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left -->
+    <div class="fade-up">
+      <div class="uppercase tracking-widest text-blue-200 text-xs mb-4">
+        Dynamic Message Signs · Intelligent Traffic
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+        Reliable LED Traffic Displays for Modern Highways
+      </h1>
+
+      <p class="text-blue-100 max-w-xl mb-6">
+        Ledstar designs and manufactures high-performance Dynamic Message Signs,
+        lane control systems, and custom LED displays for the North American market.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-4">
+        <a href="#products"
+           class="px-5 py-3 bg-blue-600 rounded-full shadow hover:bg-blue-700 transition font-medium">
+          Explore Products
+        </a>
+
+        <a href="#quote"
+           class="px-5 py-3 border border-slate-400 rounded-full hover:border-blue-300 hover:text-blue-300 transition">
+          Talk to Our Team
+        </a>
+      </div>
+
+      <p class="text-blue-300 text-xs">
+        NTCIP-compliant · Harsh climate tested · Long-term field proven
+      </p>
+    </div>
+
+    <!-- Right -->
+    <div class="fade-up">
+      <div class="bg-slate-900/70 border border-slate-600 rounded-2xl p-6 shadow-xl max-w-md ml-auto">
+
+        <div class="flex justify-between items-center text-sm text-blue-100 mb-3">
+          <span>Highway DMS Snapshot</span>
+          <span class="px-2 py-0.5 border border-blue-300 rounded-full text-xs">Live Traffic</span>
+        </div>
+
+        <p class="text-blue-200 text-xs mb-4">
+          Typical 3-line full-matrix LED sign integrated with NTCIP systems.
+        </p>
+
+        <div class="relative h-36 rounded-xl overflow-hidden bg-gradient-to-br from-slate-950 to-slate-800">
+
+          <!-- Road line -->
+          <div class="absolute bottom-7 left-0 right-0 h-1.5 opacity-70 bg-[repeating-linear-gradient(to_right,#e5e7eb_0_30px,transparent_30px_50px)]"></div>
+
+          <!-- LED Sign -->
+          <div class="absolute left-6 bottom-16 w-44 h-16 border border-green-400 bg-black rounded-md flex items-center justify-center shadow-lg text-green-400 text-[0.8rem] tracking-wider font-mono">
+            SLOW TRAFFIC AHEAD
+          </div>
+
+          <!-- Lights -->
+          <div class="absolute right-8 top-3 w-8 h-16 border border-slate-400/60 rounded-full bg-gradient-to-b from-blue-400/40 to-slate-800 shadow-md"></div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- ==================== WHY LEDSTAR ====================== -->
+<!-- ======================================================= -->
+
+<section id="industries" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6 fade-up">
+
+    <div class="mb-12">
+      <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Why Ledstar</div>
+      <h2 class="text-2xl font-semibold text-slate-800 mb-2">
+        Engineered for Transportation, Built for Reliability
+      </h2>
+      <p class="text-slate-500 max-w-xl">
+        From harsh Canadian winters to busy urban corridors, our LED systems are designed
+        to perform in the field for years.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition fade-up">
+        <div class="text-lg font-semibold mb-2">Engineering Reliability</div>
+        <p class="text-slate-500 text-sm">
+          Robust mechanical design, thermal management, and environmental testing to ensure long-term uptime and minimal maintenance.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition fade-up">
+        <div class="text-lg font-semibold mb-2">NTCIP-Compliant</div>
+        <p class="text-slate-500 text-sm">
+          Compatible with industry-standard traffic management systems, including NTCIP 1203-based controllers and central software.
+        </p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition fade-up">
+        <div class="text-lg font-semibold mb-2">End-to-End Support</div>
+        <p class="text-slate-500 text-sm">
+          From concept and design to installation, commissioning, and lifecycle support, we partner with agencies and integrators.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- ===================== PRODUCTS ======================== -->
+<!-- ======================================================= -->
+
+<!-- ======================= PRODUCTS (WITH PAGINATION) ======================= -->
+<section id="products" class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Title -->
+    <div class="mb-12 fade-up">
+      <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Products</div>
+      <h2 class="text-2xl font-semibold text-slate-800 mb-2">
+        LED Display Systems for Every Traffic Scenario
+      </h2>
+      <p class="text-slate-500 max-w-xl">
+        Tailored for highways, bridges, tunnels, and urban arterials.
+      </p>
+    </div>
+
+
+    <!-- =================== PAGE 1 (12 Products) =================== -->
+    <div class="products-page grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-page="1">
+
+      <!-- Product cards 1 to 12 -->
+      <!-- 我示例写 4 个，你复制 3 轮（共 12 个），或我可以帮你填写 12 个不同名称 -->
+      <!-- Card 1 -->
+      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+          FULL-MATRIX DMS
+        </div>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="font-semibold text-slate-800">Full-Color Dynamic Message Signs</h3>
+          <p class="text-sm text-slate-500 flex-1">
+            High-visibility full-matrix DMS for regulatory & traveler information.
+          </p>
+          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+          LANE CONTROL
+        </div>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="font-semibold text-slate-800">Lane Control Signs</h3>
+          <p class="text-sm text-slate-500 flex-1">
+            Red X / Green Arrow solutions for managed lanes & express routes.
+          </p>
+          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+          PORTABLE VMS
+        </div>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="font-semibold text-slate-800">Portable Variable Message Signs</h3>
+          <p class="text-sm text-slate-500 flex-1">
+            Trailer-based VMS for temporary detours & work zones.
+          </p>
+          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+          CUSTOM LED
+        </div>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="font-semibold text-slate-800">Custom LED Solutions</h3>
+          <p class="text-sm text-slate-500 flex-1">
+            Custom displays for tolling, tunnels, parking & specialized signage.
+          </p>
+          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">Learn More</a>
+        </div>
+      </article>
+
+      <!-- 复制以上 4 卡片 → 共 12 个 -->
+      <!-- 我也可以自动帮你生成 12 个不同名字，只要你说一声 -->
+
+    </div>
+
+
+    <!-- =================== PAGE 2 (6 Products) =================== -->
+    <div class="products-page hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-page="2">
+
+      <!-- 卡片示例（6 个，我示例写两个，你可以复制） -->
+      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-indigo-600 to-purple-800 text-indigo-200 text-xs uppercase tracking-widest flex items-center justify-center">
+          TUNNEL SIGN
+        </div>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="font-semibold text-slate-800">Tunnel LED Message Signs</h3>
+          <p class="text-sm text-slate-500 flex-1">
+            High-contrast LED signs designed for low-light tunnel environments.
+          </p>
+          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">Learn More</a>
+        </div>
+      </article>
+
+      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-emerald-600 to-teal-800 text-emerald-200 text-xs uppercase tracking-widest flex items-center justify-center">
+          PARKING GUIDANCE
+        </div>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="font-semibold text-slate-800">Parking Availability Displays</h3>
+          <p class="text-sm text-slate-500 flex-1">
+            LED directional and capacity signs for parkades & municipal parking.
+          </p>
+          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
+        </div>
+      </article>
+
+      <!-- 共 6 个，复制即可 -->
+
+    </div>
+
+
+    <!-- PAGINATION BUTTONS -->
+    <div class="flex justify-end mt-10">
+      <div class="flex gap-2">
+        <button class="page-btn px-3 py-1.5 rounded-md border text-sm font-medium bg-blue-600 text-white" data-go="1">1</button>
+        <button class="page-btn px-3 py-1.5 rounded-md border text-sm font-medium text-slate-600 hover:bg-slate-200" data-go="2">2</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Pagination Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const pages = document.querySelectorAll(".products-page");
+  const btns = document.querySelectorAll(".page-btn");
+
+  function showPage(n) {
+    pages.forEach(p => p.classList.add("hidden"));
+    document.querySelector(`.products-page[data-page="${n}"]`).classList.remove("hidden");
+
+    btns.forEach(b => b.classList.remove("bg-blue-600", "text-white"));
+    document.querySelector(`.page-btn[data-go="${n}"]`).classList.add("bg-blue-600", "text-white");
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      showPage(btn.dataset.go);
+      window.scrollTo({ top: document.getElementById("products").offsetTop - 80, behavior: "smooth" });
+    });
+  });
+
+  showPage(1); // 默认显示第一页
+});
+</script>
+
+
+
+
+<!-- ======================================================= -->
+<!-- ====================== PROJECTS ======================== -->
+<!-- ======================================================= -->
+
+<section id="projects" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-12 fade-up">
+      <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Projects</div>
+      <h2 class="text-2xl font-semibold text-slate-800 mb-2">
+        Field-Proven Installations
+      </h2>
+      <p class="text-slate-500 max-w-xl">
+        Selected deployments showing real-world performance improvements.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition fade-up">
+        <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Tollway · Illinois</div>
+        <h3 class="font-semibold text-slate-800 mb-2">Illinois Tollway DMS Upgrade</h3>
+        <p class="text-sm text-slate-500 mb-3">Overhead DMS integrated with tolling & TMC systems.</p>
+        <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Project</a>
+      </article>
+
+      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition fade-up">
+        <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Highway · Alberta</div>
+        <h3 class="font-semibold text-slate-800 mb-2">Edmonton Corridor VMS Modernization</h3>
+        <p class="text-sm text-slate-500 mb-3">VMS and LCS supporting variable speed limits & incident response.</p>
+        <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Project</a>
+      </article>
+
+      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition fade-up">
+        <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Express Lanes · Ontario</div>
+        <h3 class="font-semibold text-slate-800 mb-2">Toronto Express Lane Control</h3>
+        <p class="text-sm text-slate-500 mb-3">Lane-use control signs integrated with central operations.</p>
+        <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Project</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- ========================= TECH ========================= -->
+<!-- ======================================================= -->
+
+<section id="engineering" class="py-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-12 fade-up">
+      <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Engineering</div>
+      <h2 class="text-2xl font-semibold text-slate-800 mb-2">
+        Technical Foundation You Can Rely On
+      </h2>
+      <p class="text-slate-500 max-w-xl">
+        Proven LED hardware with standards-based control designed for ITS environments.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="flex gap-4 fade-up">
+        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
+        <div>
+          <div class="font-semibold mb-1">Environmental Testing</div>
+          <div class="text-sm text-slate-500">Temperature, vibration, humidity and IP testing.</div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 fade-up">
+        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
+        <div>
+          <div class="font-semibold mb-1">High-Brightness Modules</div>
+          <div class="text-sm text-slate-500">Optimized optics for sunlight and harsh conditions.</div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 fade-up">
+        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
+        <div>
+          <div class="font-semibold mb-1">Diagnostics & Monitoring</div>
+          <div class="text-sm text-slate-500">Remote feedback to reduce maintenance dispatches.</div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 fade-up">
+        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
+        <div>
+          <div class="font-semibold mb-1">Standards-Based Control</div>
+          <div class="text-sm text-slate-500">Designed for NTCIP-based platforms.</div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 fade-up">
+        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
+        <div>
+          <div class="font-semibold mb-1">Modular Hardware</div>
+          <div class="text-sm text-slate-500">Replaceable modules & power units.</div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 fade-up">
+        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
+        <div>
+          <div class="font-semibold mb-1">Long-Term Support</div>
+          <div class="text-sm text-slate-500">Documentation & lifecycle support.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- ========================= ABOUT ======================== -->
+<!-- ======================================================= -->
+
+<section id="about" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left -->
+      <div class="fade-up">
+        <div class="uppercase text-xs tracking-widest text-slate-500 mb-3">About Ledstar</div>
+        <h2 class="text-2xl font-semibold text-slate-800 mb-4">
+          Focused on Transportation Since Day One
+        </h2>
+
+        <p class="text-slate-500 mb-4">
+          For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
+          Dynamic Message Signs and traffic display systems.
+        </p>
+
+        <p class="text-slate-500 mb-6">
+          From specification to long-term support, we deliver reliable systems for highways,
+          bridges, tunnels, and urban networks.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="#about" class="px-4 py-2 border border-slate-300 rounded-full hover:border-blue-500 hover:text-blue-500 transition">
+            Learn More
+          </a>
+          <a href="#projects" class="px-4 py-2 border border-slate-300 rounded-full hover:border-blue-500 hover:text-blue-500 transition">
+            View References
+          </a>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="fade-up">
+        <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">At a Glance</div>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          • 20+ years in LED traffic displays<br>
+          • North American transportation focus<br>
+          • Custom solutions for agencies & integrators<br>
+          • Proven deployments across tollways & highways
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- ========================== CTA ========================= -->
+<!-- ======================================================= -->
+
+<section id="quote" class="py-16 bg-slate-900 text-slate-200">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8">
+
+    <div class="fade-up">
+      <h3 class="text-xl font-semibold mb-2">Planning your next traffic display project?</h3>
+      <p class="text-slate-400 text-sm max-w-lg">
+        Share your requirements with our engineering team and we’ll help you choose or customize the right LED solution.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-3 fade-up">
+      <a href="#contact" class="px-5 py-3 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition">
+        Request a Quote
+      </a>
+      <a href="#support" class="px-5 py-3 border border-slate-500 rounded-full hover:border-blue-400 hover:text-blue-300 transition">
+        Contact Support
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ======================================================= -->
+<!-- ======================== FOOTER ======================== -->
+<!-- ======================================================= -->
+
+<footer class="bg-slate-950 text-slate-400 py-14">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+    <!-- Links -->
+    <div>
+      <div class="text-slate-200 font-semibold mb-4">Links</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#products" class="hover:text-white transition">Products</a></li>
+        <li><a href="#industries" class="hover:text-white transition">Industries</a></li>
+        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+        <li><a href="#about" class="hover:text-white transition">About</a></li>
+        <li><a href="#engineering" class="hover:text-white transition">Engineering</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Ledstar Inc. -->
+    <div>
+      <div class="text-slate-200 font-semibold mb-4">Ledstar Inc.</div>
+      <p class="text-sm leading-relaxed">
+        Email: info@ledstar.com<br>
+        Phone: (905) 265-7800<br>
+        131 Westcreek Drive<br>
+        Woodbridge, On<br>
+        L4L 9N6
+      </p>
+    </div>
+
+    <!-- Contact USA Ledstar Inc. -->
+    <div>
+      <div class="text-slate-200 font-semibold mb-4">USA Ledstar Inc</div>
+      <p class="text-sm leading-relaxed">
+        Email: info@ledstar.com<br>
+        Phone: (407) 871-3738<br>
+        382 Evangeline Way<br>
+        Sanford, FL<br>
+        32771
+      </p>
+    </div>
+
+  </div>
+
+  <div class="text-center text-xs text-slate-500 mt-10">
+    © 2025 Ledstar Inc. · All rights reserved.
+  </div>
+</footer>
+<!-- ================= MOBILE FULL-SCREEN MENU ================= -->
+<div id="mobileMenuOverlay"
+     class="fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+
+  <div class="absolute inset-0 flex flex-col items-center justify-center space-y-6
+              text-white text-xl opacity-0 translate-y-3 transition-all duration-300"
+       id="mobileMenuContent">
+
+    <a href="#products" class="hover:text-blue-300">Products</a>
+    <a href="#industries" class="hover:text-blue-300">Industries</a>
+    <a href="#projects" class="hover:text-blue-300">Projects</a>
+    <a href="#about" class="hover:text-blue-300">About</a>
+    <a href="#engineering" class="hover:text-blue-300">Engineering</a>
+    <a href="./contact.html" class="hover:text-blue-300">Contact</a>
+
+    <a href="#quote"
+       class="mt-4 px-5 py-3 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition">
+      Request a Quote
+    </a>
+
+    <button id="closeMobileMenu" class="text-sm text-slate-300 underline mt-10 hover:text-white">
+      Close
+    </button>
+
+  </div>
+</div>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const overlay = document.getElementById("mobileMenuOverlay");
+  const content = document.getElementById("mobileMenuContent");
+  const closeBtn = document.getElementById("closeMobileMenu");
+
+  function openMenu() {
+    overlay.classList.remove("pointer-events-none");
+    overlay.classList.add("opacity-100");
+
+    // 内容淡入
+    setTimeout(() => {
+      content.classList.remove("opacity-0", "translate-y-3");
+      content.classList.add("opacity-100", "translate-y-0");
+    }, 50);
+  }
+
+  function closeMenu() {
+    overlay.classList.add("pointer-events-none");
+    overlay.classList.remove("opacity-100");
+
+    // 内容淡出
+    content.classList.add("opacity-0", "translate-y-3");
+    content.classList.remove("opacity-100", "translate-y-0");
+  }
+
+  mobileBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  // 点击背景关闭
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeMenu();
+  });
+</script>
+
+</body>
+</html>
