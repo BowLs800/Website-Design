@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products – Ledstar Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="./dist/output.css" />
+
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NPNDXGL2');
+  </script>
+
+  <style>
+    .dak-primary-link {
+      font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: .4px;
+      color: #1f2937;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .dak-cta {
+      padding: 12px 16px;
+      background:#2563eb;
+      color:white;
+      border-radius:999px;
+      font-weight:600;
+      text-align:center;
+    }
+    #drawerOverlay {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(4px);
+      opacity:0;
+      pointer-events:none;
+      transition:.3s;
+      z-index:40;
+    }
+    #rightDrawer {
+      position:fixed;
+      top:0; right:0;
+      width:320px; height:100%;
+      background:white;
+      box-shadow:-3px 0 25px rgba(0,0,0,.22);
+      transform:translateX(100%);
+      transition:.3s;
+      z-index:50;
+      display:flex; flex-direction:column;
+    }
+    .fade-up {
+      opacity:0; transform:translateY(20px);
+      transition:.6s ease;
+    }
+    .fade-up.show {
+      opacity:1; transform:translateY(0);
+    }
+
+    /* CATEGORY BUTTONS */
+    .cat-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+      transition: .15s;
+    }
+    .cat-btn:hover {
+      background: #f1f5f9;
+    }
+    .cat-btn.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+  </style>
+</head>
+
+<body class="text-slate-800 bg-white">
+
+<!-- HEADER -->
+<header
+  class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200"
+  id="header">
+
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <div class="flex items-center gap-2">
+      <div class="w-5 h-5 rounded-md bg-gradient-to-br from-blue-600 to-cyan-400"></div>
+      <span class="font-semibold tracking-widest uppercase">Ledstar</span>
+    </div>
+
+    <button id="openDrawer"
+            class="px-3 py-2 border border-slate-300 rounded-lg text-sm flex items-center gap-1">
+      Menu
+    </button>
+
+  </div>
+</header>
+
+
+<!-- DRAWER -->
+<div id="drawerOverlay"></div>
+<div id="rightDrawer">
+  <div id="drawerHeader"
+       style="height:64px; border-bottom:1px solid #e5e7eb; display:flex; align-items:center; justify-content:space-between; padding:0 24px;">
+    <span style="font-size:18px; font-weight:600;">Menu</span>
+    <div id="closeDrawer" style="font-size:24px; cursor:pointer;">✕</div>
+  </div>
+
+  <div id="drawerContent" style="padding:24px; overflow-y:auto;">
+    <a class="dak-primary-link" href="./index.html">Home</a>
+    <a class="dak-primary-link" href="./products.html">Products</a>
+    <a class="dak-primary-link" href="./projects.html">Projects</a>
+    <a class="dak-primary-link" href="./about.html">About</a>
+    <a class="dak-primary-link" href="./index.html#engineering">Engineering</a>
+    <a class="dak-primary-link" href="./index.html#industries">Industries</a>
+    <a class="dak-primary-link" href="./contact.html">Contact</a>
+
+    <hr style="margin:24px 0;">
+
+    <a class="dak-cta" href="./index.html#quote">Request a Quote</a>
+  </div>
+</div>
+
+
+<!-- ========================= PRODUCTS CONTENT ========================= -->
+<section class="pt-28 pb-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h1 class="text-3xl font-bold mb-8 text-slate-800">Products</h1>
+
+    <p class="text-slate-600 mb-10 max-w-xl">
+      A selection of our LED traffic control and dynamic message display systems.
+    </p>
+
+
+    <!-- 🔍 SEARCH + CATEGORY FILTER -->
+    <div class="mb-10 space-y-4">
+
+      <!-- SEARCH -->
+      <input
+        id="productSearch"
+        type="text"
+        placeholder="Search products..."
+        class="w-full sm:w-80 border border-slate-300 rounded-lg px-4 py-2 text-sm
+               focus:ring-2 focus:ring-blue-500 outline-none"
+      />
+
+      <!-- CATEGORY BUTTONS -->
+      <div class="flex flex-wrap gap-3">
+        <button class="cat-btn active" data-filter="all">All</button>
+        <button class="cat-btn" data-filter="dms">DMS</button>
+        <button class="cat-btn" data-filter="lane">Lane Control</button>
+        <button class="cat-btn" data-filter="portable">Portable VMS</button>
+        <button class="cat-btn" data-filter="tunnel">Tunnel</button>
+        <button class="cat-btn" data-filter="parking">Parking</button>
+        <button class="cat-btn" data-filter="custom">Custom</button>
+      </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT GRID -->
+    <div id="productGrid" class="grid sm:grid-cols-3 lg:grid-cols-5 gap-8">
+
+      <!-- Full-Matrix DMS -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="dms">
+        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          FULL-MATRIX DMS
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
+          <p class="text-sm text-slate-500 mb-4">High-visibility full matrix LED signage with NTCIP 1203 support.</p>
+        </div>
+      </div>
+
+      <!-- Lane Control -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="lane">
+        <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          LANE CONTROL
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Lane Control Signs</h3>
+          <p class="text-sm text-slate-500 mb-4">Red X / Green Arrow signage used for express and managed lanes.</p>
+        </div>
+      </div>
+
+      <!-- Portable VMS -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="portable">
+        <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          PORTABLE VMS
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Portable Message Signs</h3>
+          <p class="text-sm text-slate-500 mb-4">Trailer-based VMS for construction zones and temporary traffic control.</p>
+        </div>
+      </div>
+
+      <!-- Tunnel -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="tunnel">
+        <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          TUNNEL SIGN
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Tunnel Message Display</h3>
+          <p class="text-sm text-slate-500 mb-4">High-contrast LED signs designed for tunnels.</p>
+        </div>
+      </div>
+
+      <!-- Parking -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="parking">
+        <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          PARKING GUIDANCE
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
+          <p class="text-sm text-slate-500 mb-4">LED directional and capacity signage for parkades.</p>
+        </div>
+      </div>
+
+      <!-- Custom -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="custom">
+        <div class="h-32 bg-gradient-to-br from-rose-700 to-red-800 text-rose-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          CUSTOM LED
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Custom LED Solutions</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Tailored LED systems for tolling, bridges, marine and industrial applications.
+          </p>
+        </div>
+      </div>
+
+      <!-- Full-Matrix DMS -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="dms">
+        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          FULL-MATRIX DMS
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
+          <p class="text-sm text-slate-500 mb-4">High-visibility full matrix LED signage with NTCIP 1203 support.</p>
+        </div>
+      </div>
+
+      <!-- Lane Control -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="lane">
+        <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          LANE CONTROL
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Lane Control Signs</h3>
+          <p class="text-sm text-slate-500 mb-4">Red X / Green Arrow signage used for express and managed lanes.</p>
+        </div>
+      </div>
+
+
+
+      <!-- Parking -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="parking">
+        <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          PARKING GUIDANCE
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
+          <p class="text-sm text-slate-500 mb-4">LED directional and capacity signage for parkades.</p>
+        </div>
+      </div>
+
+      <!-- Portable VMS -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="portable">
+        <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          PORTABLE VMS
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Portable Message Signs</h3>
+          <p class="text-sm text-slate-500 mb-4">Trailer-based VMS for construction zones and temporary traffic control.</p>
+        </div>
+      </div>
+
+      <!-- Tunnel -->
+      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+           data-category="tunnel">
+        <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200
+                    uppercase tracking-widest text-xs flex items-center justify-center">
+          TUNNEL SIGN
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-800 mb-2">Tunnel Message Display</h3>
+          <p class="text-sm text-slate-500 mb-4">High-contrast LED signs designed for tunnels.</p>
+        </div>
+      </div>
+
+    </div> <!-- END PRODUCT GRID -->
+
+    <!-- No results -->
+    <div id="noResults" class="text-slate-500 mt-10 hidden">
+      No results found.
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="bg-slate-950 text-slate-400 py-14">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-3 gap-10">
+
+    <div>
+      <div class="text-slate-200 font-semibold mb-4">Links</div>
+      <ul class="space-y-2 text-sm">
+        <li><a href="./index.html" class="hover:text-blue-300">Main</a></li>
+        <li><a href="./products.html" class="hover:text-white">Products</a></li>
+        <li><a href="./projects.html" class="hover:text-white">Projects</a></li>
+        <li><a href="./about.html" class="hover:text-white">About</a></li>
+        <li><a href="./contact.html" class="hover:text-white">Contact</a></li>
+        <li><a href="./index.html#engineering" class="hover:text-white">Engineering</a></li>
+        <li><a href="./index.html#industries" class="hover:text-white">Industries</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="text-slate-200 font-semibold mb-4">Ledstar Inc.</div>
+      <p class="text-sm leading-relaxed">
+        Email: info@ledstar.com<br>
+        Phone: (905) 265-7800<br>
+        131 Westcreek Drive<br>
+        Woodbridge, ON<br>
+        L4L 9N6
+      </p>
+    </div>
+
+    <div>
+      <div class="text-slate-200 font-semibold mb-4">USA Ledstar Inc.</div>
+      <p class="text-sm leading-relaxed">
+        Email: info@ledstar.com<br>
+        Phone: (407) 871-3738<br>
+        382 Evangeline Way<br>
+        Sanford, FL<br>
+        32771
+      </p>
+    </div>
+
+  </div>
+
+  <div class="text-center text-xs text-slate-500 mt-10">
+    © 2025 Ledstar Inc. · All rights reserved.
+  </div>
+</footer>
+
+
+
+<!-- ========================= SCRIPTS ========================= -->
+<script>
+/* ---------------------- fade-up animation ---------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".fade-up").forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) el.classList.add("show");
+      });
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  });
+});
+
+
+/* ---------------------- Drawer menu ---------------------- */
+const openBtn = document.getElementById("openDrawer");
+const closeBtn = document.getElementById("closeDrawer");
+const drawer = document.getElementById("rightDrawer");
+const overlay = document.getElementById("drawerOverlay");
+
+function showDrawer() {
+  drawer.style.transform = "translateX(0)";
+  overlay.style.opacity = "1";
+  overlay.style.pointerEvents = "auto";
+}
+
+function hideDrawer() {
+  drawer.style.transform = "translateX(100%)";
+  overlay.style.opacity = "0";
+  setTimeout(() => overlay.style.pointerEvents = "none", 300);
+}
+
+openBtn.addEventListener("click", showDrawer);
+closeBtn.addEventListener("click", hideDrawer);
+overlay.addEventListener("click", hideDrawer);
+
+
+
+/* =====================================================
+   PRODUCT SEARCH + CATEGORY FILTER (核心功能)
+   ===================================================== */
+
+const searchInput = document.getElementById("productSearch");
+const categoryButtons = document.querySelectorAll(".cat-btn");
+const productCards = document.querySelectorAll(".product-card");
+const noResultsMessage = document.getElementById("noResults");
+
+let activeCategory = "all";  // 当前分类
+let searchTerm = "";         // 当前搜索词
+
+
+/* ---------- 更新过滤结果 ---------- */
+function updateFilters() {
+  let visibleCount = 0;
+
+  productCards.forEach(card => {
+    const cardCategory = card.dataset.category.trim().toLowerCase();
+    const text = card.innerText.toLowerCase();
+
+    const matchCategory =
+      (activeCategory === "all") || (cardCategory === activeCategory);
+
+    const matchSearch =
+      searchTerm === "" || text.includes(searchTerm);
+
+    if (matchCategory && matchSearch) {
+      card.style.display = "block";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  // 显示 / 隐藏 “No results”
+  noResultsMessage.classList.toggle("hidden", visibleCount !== 0);
+}
+
+
+/* ---------- 分类按钮点击 ---------- */
+categoryButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // 移除所有 active
+    categoryButtons.forEach(b => b.classList.remove("active"));
+
+    // 新按钮高亮
+    btn.classList.add("active");
+
+    // 更新分类
+    activeCategory = btn.dataset.filter;
+    updateFilters();
+  });
+});
+
+
+/* ---------- 搜索输入事件 ---------- */
+searchInput.addEventListener("input", e => {
+  searchTerm = e.target.value.trim().toLowerCase();
+  updateFilters();
+});
+</script>
+
+</body>
+</html>

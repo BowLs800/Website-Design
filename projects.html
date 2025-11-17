@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact – Ledstar Inc.</title>
+  <title>Projects – Ledstar Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Tailwind -->
@@ -22,7 +22,6 @@
   </script>
 
   <style>
-    /* Daktronics-style link typography */
     .dak-primary-link {
       font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;
       font-size: 18px;
@@ -114,6 +113,8 @@
 </head>
 
 
+<body class="text-slate-800 bg-white">
+
 <!-- GTM noscript -->
 <noscript>
   <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPNDXGL2"
@@ -147,18 +148,14 @@
 </header>
 
 
-
-
 <!-- ========================= DRAWER ========================= -->
 <div id="drawerOverlay"></div>
 
 <div id="rightDrawer">
-
   <div id="drawerHeader">
     <span style="font-size:18px; font-weight:600;">Menu</span>
     <div id="closeDrawer">✕</div>
   </div>
-
   <div id="drawerContent">
     <a class="dak-primary-link" href="./index.html">Home</a>
     <a class="dak-primary-link" href="./products.html">Products</a>
@@ -172,56 +169,86 @@
 
     <a class="dak-cta" href="./index.html#quote">Request a Quote</a>
   </div>
-
 </div>
 
 
-<!-- ========================= CONTACT SECTION ========================= -->
-<section class="pt-20 pb-16 bg-slate-50">
-
+<!-- ========================= PROJECTS SECTION ========================= -->
+<section class="pt-28 pb-24 bg-slate-50">
 
   <div class="max-w-7xl mx-auto px-6">
 
-    <h1 class="text-3xl font-bold mb-8 text-slate-800">Contact Us</h1>
-    <p class="text-slate-600 mb-10">
-      We have two office locations. Find our addresses and maps below.
+    <h1 class="text-3xl font-bold mb-8 text-slate-800">Project Portfolio</h1>
+
+    <p class="text-slate-600 mb-12 max-w-2xl">
+      A curated selection of our completed LED signage, traffic systems, and custom engineering projects.
+      Each project highlights our expertise across highways, municipalities, and integrated ITS deployments.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-      <!-- Canada -->
-      <div class="bg-white p-5 rounded-2xl shadow border border-slate-200 fade-up">
-        <h3 class="text-xl font-semibold mb-3">Canada Office</h3>
-        <p class="text-slate-500 text-sm mb-4">
-          131 Westcreek Drive, Woodbridge, Ontario L4L 9N6
-        </p>
-        <div class="w-full h-72 rounded-xl overflow-hidden border border-slate-300">
-          <iframe
-            class="w-full h-full"
-            style="position: relative; z-index: 0; border: 0;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.153352012036!2d-79.57390262356705!3d43.79428887109885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2db0fcf6dd3b%3A0x47d0fd06405d4953!2s131%20Westcreek%20Dr%2C%20Woodbridge%2C%20ON%20L4L%209N6!5e0!3m2!1sen!2sca!4v1731522282200!5m2!1sen!2sca">
-          </iframe>
+      <!-- Project Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <div class="h-40 bg-gradient-to-br from-blue-700 to-slate-900 rounded-t-2xl"></div>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Highway DMS Replacement</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Deployment of full-matrix amber/colour DMS along major highway corridors with NTCIP 1203 integration.
+          </p>
         </div>
       </div>
 
-      <!-- USA -->
-      <div class="bg-white p-5 rounded-2xl shadow border border-slate-200 fade-up">
-        <h3 class="text-xl font-semibold mb-3">USA Office</h3>
-        <p class="text-slate-500 text-sm mb-4">
-          382 Evangeline Way, Sanford, FL 32771
-        </p>
-        <div class="w-full h-72 rounded-xl overflow-hidden border border-slate-300">
-          <iframe
-            class="w-full h-full"
-            style="position: relative; z-index: 0; border: 0;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112577.84692690755!2d-81.37215995000002!3d28.819855349999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7685b73f86e61%3A0x5190f0c0170a84bc!2s382%20Evangeline%20Way%2C%20Sanford%2C%20FL%2032771!5e0!3m2!1sen!2sus!4v1731522434314!5m2!1sen!2sus">
-          </iframe>
+      <!-- Project Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <div class="h-40 bg-gradient-to-br from-green-600 to-emerald-700 rounded-t-2xl"></div>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Managed Lane Control System</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Installation of Red X / Green Arrow lane control systems for urban express routes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <div class="h-40 bg-gradient-to-br from-purple-700 to-slate-800 rounded-t-2xl"></div>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Tunnel Message Display Upgrade</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            High-contrast tunnel LED signage optimized for low-visibility environments.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <div class="h-40 bg-gradient-to-br from-yellow-600 to-amber-700 rounded-t-2xl"></div>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Portable VMS Fleet Deployment</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Trailer-based portable VMS fleet created for municipal and contractor work-zone use.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <div class="h-40 bg-gradient-to-br from-indigo-600 to-cyan-600 rounded-t-2xl"></div>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Parking Guidance LED System</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Integrated capacity and directional guidance signage for parking structures.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project Card -->
+      <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <div class="h-40 bg-gradient-to-br from-red-700 to-rose-700 rounded-t-2xl"></div>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Custom LED Engineering</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Tailored LED solutions for tolling, industrial facilities, bridges, and marine applications.
+          </p>
         </div>
       </div>
 
@@ -230,11 +257,12 @@
   </div>
 </section>
 
-<!-- ========================= FOOTER ======================== = -->
+
+
+<!-- ========================= FOOTER ========================= -->
 <footer class="bg-slate-950 text-slate-400 py-14">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-3 gap-10">
 
-    <!-- Links -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">Links</div>
       <ul class="space-y-2 text-sm">
@@ -248,7 +276,6 @@
       </ul>
     </div>
 
-    <!-- Ledstar -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">Ledstar Inc.</div>
       <p class="text-sm leading-relaxed">
@@ -260,7 +287,6 @@
       </p>
     </div>
 
-    <!-- USA -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">USA Ledstar Inc.</div>
       <p class="text-sm leading-relaxed">

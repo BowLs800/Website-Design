@@ -8,6 +8,14 @@
   <!-- Tailwind -->
   <link rel="stylesheet" href="./dist/output.css">
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NPNDXGL2');</script>
+    <!-- End Google Tag Manager -->
+
   <!-- Fade-in Animation -->
   <style>
     .fade-up {
@@ -33,15 +41,23 @@
 
   <script>
     document.addEventListener("scroll", () => {
-      const header = document.getElementById("header");
-      if (window.scrollY > 40) header.classList.add("shadow-lg", "h-14");
-      else header.classList.remove("shadow-lg", "h-14");
-    });
+  const header = document.getElementById("header");
+  if (window.scrollY > 40) header.classList.add("shadow-lg", "h-14");
+  else header.classList.remove("shadow-lg", "h-14");
+});
+
   </script>
+
+
 </head>
 
 
 <body class="text-slate-800 bg-white">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPNDXGL2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ======================================================= -->
 <!-- ======================= HEADER ======================== -->
@@ -60,11 +76,11 @@
 
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
-      <a href="#products" class="hover:text-blue-600 transition">Products</a>
-      <a href="#industries" class="hover:text-blue-600 transition">Industries</a>
-      <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-      <a href="#about" class="hover:text-blue-600 transition">About</a>
-      <a href="#engineering" class="hover:text-blue-600 transition">Engineering</a>
+      <a href="./products.html" class="text-blue-600 font-medium">Products</a>
+      <a href="./projects.html" class="hover:text-blue-600 transition">Projects</a>
+      <a href="./index.html#engineering" class="hover:text-blue-600 transition">Engineering</a>
+      <a href="./index.html#industries" class="hover:text-blue-600 transition">Industries</a>
+      <a href="./about.html" class="hover:text-blue-600 transition">About</a>
       <a href="./contact.html" class="hover:text-blue-600 transition">Contact</a>
       <a href="#quote"
          class="px-4 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition font-medium">
@@ -578,11 +594,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <div>
       <div class="text-slate-200 font-semibold mb-4">Links</div>
       <ul class="space-y-2 text-sm">
-        <li><a href="#products" class="hover:text-white transition">Products</a></li>
-        <li><a href="#industries" class="hover:text-white transition">Industries</a></li>
-        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
-        <li><a href="#about" class="hover:text-white transition">About</a></li>
-        <li><a href="#engineering" class="hover:text-white transition">Engineering</a></li>
+
+        <li><a href="./products.html" class="hover:text-white transition">Products</a></li>
+        <li><a href="./projects.html" class="hover:text-white transition">Projects</a></li>
+        <li><a href="./about.html" class="hover:text-white transition">About</a></li>
+        <li><a href="./contact.html" class="hover:text-white transition">Contact</a></li>
+
+        <li><a href="index.html#engineering" class="hover:text-white transition">Engineering</a></li>
+        <li><a href="index.html#industries" class="hover:text-white transition">Industries</a></li>
       </ul>
     </div>
 
@@ -624,12 +643,13 @@ document.addEventListener("DOMContentLoaded", () => {
               text-white text-xl opacity-0 translate-y-3 transition-all duration-300"
        id="mobileMenuContent">
 
-    <a href="#products" class="hover:text-blue-300">Products</a>
-    <a href="#industries" class="hover:text-blue-300">Industries</a>
-    <a href="#projects" class="hover:text-blue-300">Projects</a>
-    <a href="#about" class="hover:text-blue-300">About</a>
-    <a href="#engineering" class="hover:text-blue-300">Engineering</a>
+    <a href="./products.html" class="hover:text-blue-300">Products</a>
+    <a href="./projects.html" class="hover:text-blue-300">Projects</a>
+    <a href="./about.html" class="hover:text-blue-300">About</a>
     <a href="./contact.html" class="hover:text-blue-300">Contact</a>
+
+    <a href="index.html#engineering" class="hover:text-blue-300">Engineering</a>
+    <a href="index.html#industries" class="hover:text-blue-300">Industries</a>
 
     <a href="#quote"
        class="mt-4 px-5 py-3 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition">

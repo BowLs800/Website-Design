@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact – Ledstar Inc.</title>
+  <title>About – Ledstar Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Tailwind -->
   <link rel="stylesheet" href="./dist/output.css" />
 
-  <!-- Google Tag Manager -->
+  <!-- GTM -->
   <script>
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -22,7 +22,6 @@
   </script>
 
   <style>
-    /* Daktronics-style link typography */
     .dak-primary-link {
       font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;
       font-size: 18px;
@@ -32,16 +31,16 @@
       color: #1f2937;
       margin-bottom: 16px;
       display: block;
-      transition: color .2s ease;
+      transition:.2s;
     }
     .dak-primary-link:hover { color:#2563eb; }
 
     .dak-cta {
-      display: block;
-      padding: 12px 16px;
-      text-align: center;
+      display:block;
+      padding:12px 16px;
       background:#2563eb;
       color:white;
+      text-align:center;
       border-radius:999px;
       font-weight:600;
       text-decoration:none;
@@ -49,58 +48,37 @@
     }
     .dak-cta:hover { background:#1d4ed8; }
 
-    /* Drawer overlay */
     #drawerOverlay {
-      position:fixed;
-      inset:0;
+      position:fixed; inset:0;
       background:rgba(0,0,0,0.6);
       backdrop-filter:blur(4px);
-      opacity:0;
-      pointer-events:none;
-      transition:.3s;
-      z-index:40;
+      opacity:0; pointer-events:none;
+      transition:.3s; z-index:40;
     }
 
-    /* Drawer panel */
     #rightDrawer {
-      position:fixed;
-      top:0;
-      right:0;
-      width:320px;
-      height:100%;
+      position:fixed; top:0; right:0;
+      width:320px; height:100%;
       background:white;
       box-shadow:-3px 0 25px rgba(0,0,0,.22);
       transform:translateX(100%);
       transition:.3s;
       z-index:50;
-      display:flex;
-      flex-direction:column;
+      display:flex; flex-direction:column;
     }
 
     #drawerHeader {
       height:64px;
       border-bottom:1px solid #e5e7eb;
-      display:flex;
-      align-items:center;
+      display:flex; align-items:center;
       justify-content:space-between;
       padding:0 24px;
-      font-family:"Segoe UI","Roboto","Helvetica Neue",Arial;
-    }
-
-    #closeDrawer {
-      font-size:24px;
-      cursor:pointer;
-      color:#555;
     }
 
     #drawerContent {
-      padding:24px;
-      overflow-y:auto;
-      flex:1;
-      font-family:"Segoe UI","Roboto","Helvetica Neue",Arial;
+      padding:24px; overflow-y:auto; flex:1;
     }
 
-    /* fade-up */
     .fade-up {
       opacity:0;
       transform:translateY(20px);
@@ -114,15 +92,9 @@
 </head>
 
 
-<!-- GTM noscript -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPNDXGL2"
-          height="0" width="0"
-          style="display:none;visibility:hidden"></iframe>
-</noscript>
+<body class="bg-white text-slate-800">
 
-
-<!-- ========================= HEADER ========================= -->
+<!-- HEADER -->
 <header
   class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200 transition-all duration-300"
   id="header">
@@ -147,18 +119,14 @@
 </header>
 
 
-
-
-<!-- ========================= DRAWER ========================= -->
+<!-- DRAWER -->
 <div id="drawerOverlay"></div>
 
 <div id="rightDrawer">
-
   <div id="drawerHeader">
     <span style="font-size:18px; font-weight:600;">Menu</span>
     <div id="closeDrawer">✕</div>
   </div>
-
   <div id="drawerContent">
     <a class="dak-primary-link" href="./index.html">Home</a>
     <a class="dak-primary-link" href="./products.html">Products</a>
@@ -172,57 +140,61 @@
 
     <a class="dak-cta" href="./index.html#quote">Request a Quote</a>
   </div>
-
 </div>
 
 
-<!-- ========================= CONTACT SECTION ========================= -->
-<section class="pt-20 pb-16 bg-slate-50">
+<!-- ========================= ABOUT CONTENT ========================= -->
+<section class="pt-28 pb-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6 fade-up">
 
+    <h1 class="text-3xl font-bold mb-8">About Ledstar</h1>
 
-  <div class="max-w-7xl mx-auto px-6">
-
-    <h1 class="text-3xl font-bold mb-8 text-slate-800">Contact Us</h1>
-    <p class="text-slate-600 mb-10">
-      We have two office locations. Find our addresses and maps below.
+    <p class="text-slate-600 max-w-3xl leading-relaxed mb-10">
+      Ledstar Inc. is a North American manufacturer and integrator of LED dynamic message signage,
+      lane control systems, and traffic management display technologies.
+      With decades of experience serving municipalities, highways, and large-scale infrastructure,
+      we bring together engineering expertise, durable manufacturing, and full NTCIP-compliant systems.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-10">
+    <p class="text-slate-600 max-w-3xl leading-relaxed mb-10">
+      Our products are deployed across highway corridors, tunnels, bridges, airports, and industrial installations.
+      We provide end-to-end solutions — including manufacturing, software integration, testing, installation support,
+      and long-term maintenance services.
+    </p>
+  </div>
+</section>
 
-      <!-- Canada -->
-      <div class="bg-white p-5 rounded-2xl shadow border border-slate-200 fade-up">
-        <h3 class="text-xl font-semibold mb-3">Canada Office</h3>
-        <p class="text-slate-500 text-sm mb-4">
-          131 Westcreek Drive, Woodbridge, Ontario L4L 9N6
+
+<!-- CAPABILITIES -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-2xl font-semibold mb-10 fade-up">Our Core Capabilities</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="fade-up bg-slate-50 p-6 border border-slate-200 rounded-2xl shadow-sm">
+        <h3 class="font-semibold text-lg mb-3">Engineering & Design</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Custom LED display development, optical design, NTCIP 1203 compliance,
+          environmental testing, and structural integration.
         </p>
-        <div class="w-full h-72 rounded-xl overflow-hidden border border-slate-300">
-          <iframe
-            class="w-full h-full"
-            style="position: relative; z-index: 0; border: 0;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.153352012036!2d-79.57390262356705!3d43.79428887109885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2db0fcf6dd3b%3A0x47d0fd06405d4953!2s131%20Westcreek%20Dr%2C%20Woodbridge%2C%20ON%20L4L%209N6!5e0!3m2!1sen!2sca!4v1731522282200!5m2!1sen!2sca">
-          </iframe>
-        </div>
       </div>
 
-      <!-- USA -->
-      <div class="bg-white p-5 rounded-2xl shadow border border-slate-200 fade-up">
-        <h3 class="text-xl font-semibold mb-3">USA Office</h3>
-        <p class="text-slate-500 text-sm mb-4">
-          382 Evangeline Way, Sanford, FL 32771
+      <div class="fade-up bg-slate-50 p-6 border border-slate-200 rounded-2xl shadow-sm">
+        <h3 class="font-semibold text-lg mb-3">Manufacturing</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Precision LED module fabrication, enclosure assembly, QC testing,
+          and ISO-aligned production workflows.
         </p>
-        <div class="w-full h-72 rounded-xl overflow-hidden border border-slate-300">
-          <iframe
-            class="w-full h-full"
-            style="position: relative; z-index: 0; border: 0;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112577.84692690755!2d-81.37215995000002!3d28.819855349999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7685b73f86e61%3A0x5190f0c0170a84bc!2s382%20Evangeline%20Way%2C%20Sanford%2C%20FL%2032771!5e0!3m2!1sen!2sus!4v1731522434314!5m2!1sen!2sus">
-          </iframe>
-        </div>
+      </div>
+
+      <div class="fade-up bg-slate-50 p-6 border border-slate-200 rounded-2xl shadow-sm">
+        <h3 class="font-semibold text-lg mb-3">Software & Integration</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          System configuration, communications integration,
+          embedded controls, and support for LEDMaster Client/Server.
+        </p>
       </div>
 
     </div>
@@ -230,25 +202,24 @@
   </div>
 </section>
 
-<!-- ========================= FOOTER ======================== = -->
+
+<!-- ========================= FOOTER ========================= -->
 <footer class="bg-slate-950 text-slate-400 py-14">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-3 gap-10">
 
-    <!-- Links -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">Links</div>
       <ul class="space-y-2 text-sm">
         <li><a href="./index.html" class="hover:text-blue-300">Main</a></li>
         <li><a href="./products.html" class="hover:text-white">Products</a></li>
         <li><a href="./projects.html" class="hover:text-white">Projects</a></li>
-        <li><a href="./about.html" class="hover:text-white">About</a></li>
+        <li><a href="./about.html" class="hover:text:white">About</a></li>
         <li><a href="./contact.html" class="hover:text-white">Contact</a></li>
         <li><a href="./index.html#engineering" class="hover:text-white">Engineering</a></li>
         <li><a href="./index.html#industries" class="hover:text-white">Industries</a></li>
       </ul>
     </div>
 
-    <!-- Ledstar -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">Ledstar Inc.</div>
       <p class="text-sm leading-relaxed">
@@ -260,7 +231,6 @@
       </p>
     </div>
 
-    <!-- USA -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">USA Ledstar Inc.</div>
       <p class="text-sm leading-relaxed">
@@ -280,10 +250,8 @@
 </footer>
 
 
-
-<!-- ========================= SCRIPTS ========================= -->
+<!-- SCRIPTS -->
 <script>
-  /* fade-up */
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".fade-up").forEach(el => {
       const obs = new IntersectionObserver(entries => {
@@ -293,7 +261,6 @@
     });
   });
 
-  /* drawer */
   const openBtn = document.getElementById("openDrawer");
   const closeBtn = document.getElementById("closeDrawer");
   const drawer = document.getElementById("rightDrawer");
