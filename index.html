@@ -1,72 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Ledstar Inc. – Dynamic Message Signs & Traffic Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Tailwind -->
-  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="./dist/output.css" />
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NPNDXGL2');</script>
-    <!-- End Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NPNDXGL2');
+  </script>
 
-  <!-- Fade-in Animation -->
+  <!-- Drawer + Fade CSS -->
   <style>
+    .dak-primary-link {
+      font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: .4px;
+      text-decoration: none;
+      color: #1f2937;
+      margin-bottom: 16px;
+      display: block;
+      transition: .2s;
+    }
+    .dak-primary-link:hover { color: #2563eb; }
+
+    .dak-cta {
+      display:block; padding:12px 16px; text-align:center;
+      background:#2563eb; color:white; border-radius:999px;
+      font-weight:600; text-decoration:none; transition:.2s;
+    }
+    .dak-cta:hover { background:#1d4ed8; }
+
+    #drawerOverlay {
+      position:fixed; inset:0; background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(4px);
+      opacity:0; pointer-events:none; transition:.3s; z-index:40;
+    }
+    #rightDrawer {
+      position:fixed; top:0; right:0; width:320px; height:100%;
+      background:white; box-shadow:-3px 0 25px rgba(0,0,0,.22);
+      transform:translateX(100%); transition:.3s; z-index:50;
+      display:flex; flex-direction:column;
+    }
+    #drawerHeader {
+      height:64px; border-bottom:1px solid #e5e7eb;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 24px;
+    }
+    #closeDrawer { font-size:24px; cursor:pointer; color:#555; }
+
+    #drawerContent { padding:24px; overflow-y:auto; flex:1; }
+
     .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease;
+      opacity:0; transform:translateY(20px);
+      transition:.6s ease;
     }
     .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
+      opacity:1; transform:translateY(0);
     }
   </style>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const elements = document.querySelectorAll(".fade-up");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
-      }, { threshold: 0.15 });
-      elements.forEach(el => observer.observe(el));
-    });
-  </script>
-
-  <script>
-    document.addEventListener("scroll", () => {
-  const header = document.getElementById("header");
-  if (window.scrollY > 40) header.classList.add("shadow-lg", "h-14");
-  else header.classList.remove("shadow-lg", "h-14");
-});
-
-  </script>
-
-
 </head>
-
 
 <body class="text-slate-800 bg-white">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPNDXGL2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- GTM noscript -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPNDXGL2"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 
-<!-- ======================================================= -->
-<!-- ======================= HEADER ======================== -->
-<!-- ======================================================= -->
 
-<header id="header"
-        class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200 transition-all duration-300">
+<!-- ========================= HEADER (UNIFIED) ========================= -->
+<header
+  class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200 transition-all duration-300 h-16"
+  id="header">
 
-  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
 
     <!-- Logo -->
     <div class="flex items-center gap-2">
@@ -74,36 +95,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="font-semibold tracking-widest uppercase">Ledstar</span>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
-      <a href="./products.html" class="text-blue-600 font-medium">Products</a>
-      <a href="./projects.html" class="hover:text-blue-600 transition">Projects</a>
-      <a href="./index.html#engineering" class="hover:text-blue-600 transition">Engineering</a>
-      <a href="./index.html#industries" class="hover:text-blue-600 transition">Industries</a>
-      <a href="./about.html" class="hover:text-blue-600 transition">About</a>
-      <a href="./contact.html" class="hover:text-blue-600 transition">Contact</a>
-      <a href="#quote"
-         class="px-4 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition font-medium">
-        Request Quote
-      </a>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <button id="mobileMenuBtn"
-            class="md:hidden px-3 py-2 border border-slate-300 rounded-lg text-sm">
+    <!-- Drawer Button -->
+    <button id="openDrawer"
+            class="px-3 py-2 border border-slate-300 rounded-lg text-sm flex items-center gap-1">
       Menu
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
     </button>
-
 
   </div>
 </header>
 
 
+<!-- ===================== DRAWER (UNIFIED) ===================== -->
+<div id="drawerOverlay"></div>
 
-<!-- ======================================================= -->
-<!-- ======================== HERO ========================= -->
-<!-- ======================================================= -->
+<div id="rightDrawer">
+  <div id="drawerHeader">
+    <span style="font-size:18px;font-weight:600;">Menu</span>
+    <div id="closeDrawer">✕</div>
+  </div>
 
+  <div id="drawerContent">
+    <a class="dak-primary-link" href="./index.html">Home</a>
+    <a class="dak-primary-link" href="./products.html">Products</a>
+    <a class="dak-primary-link" href="./projects.html">Projects</a>
+    <a class="dak-primary-link" href="./about.html">About</a>
+    <a class="dak-primary-link" href="./index.html#engineering">Engineering</a>
+    <a class="dak-primary-link" href="./index.html#industries">Industries</a>
+    <a class="dak-primary-link" href="./contact.html">Contact</a>
+
+    <hr style="border-top:1px solid #e5e7eb; margin:24px 0;" />
+
+    <a class="dak-cta" href="./index.html#quote">Request a Quote</a>
+  </div>
+</div>
+
+<div class="h-10 bg-slate-50"></div>
+
+<!-- ========================= HERO ========================= -->
 <section class="bg-gradient-to-br from-blue-700 to-slate-900 text-white py-20">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
@@ -174,10 +206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<!-- ======================================================= -->
-<!-- ==================== WHY LEDSTAR ====================== -->
-<!-- ======================================================= -->
-
+<!-- ========================= WHY LEDSTAR ========================= -->
 <section id="industries" class="py-20 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6 fade-up">
 
@@ -197,21 +226,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition fade-up">
         <div class="text-lg font-semibold mb-2">Engineering Reliability</div>
         <p class="text-slate-500 text-sm">
-          Robust mechanical design, thermal management, and environmental testing to ensure long-term uptime and minimal maintenance.
+          Robust mechanical design, thermal management, and environmental testing ensure longevity.
         </p>
       </div>
 
       <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition fade-up">
         <div class="text-lg font-semibold mb-2">NTCIP-Compliant</div>
         <p class="text-slate-500 text-sm">
-          Compatible with industry-standard traffic management systems, including NTCIP 1203-based controllers and central software.
+          Industry-standard compatibility with NTCIP 1203 traffic control platforms.
         </p>
       </div>
 
       <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition fade-up">
         <div class="text-lg font-semibold mb-2">End-to-End Support</div>
         <p class="text-slate-500 text-sm">
-          From concept and design to installation, commissioning, and lifecycle support, we partner with agencies and integrators.
+          From concept design to installation and long-term maintenance.
         </p>
       </div>
 
@@ -221,129 +250,93 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<!-- ======================================================= -->
-<!-- ===================== PRODUCTS ======================== -->
-<!-- ======================================================= -->
-
-<!-- ======================= PRODUCTS (WITH PAGINATION) ======================= -->
+<!-- ========================= PRODUCTS ========================= -->
 <section id="products" class="py-20">
   <div class="max-w-7xl mx-auto px-6">
 
-    <!-- Title -->
     <div class="mb-12 fade-up">
-      <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Products</div>
+      <a href="./products.html"
+         class="uppercase text-xs tracking-widest text-slate-500 mb-2 hover:text-blue-600 transition">
+        Products
+      </a>
+
       <h2 class="text-2xl font-semibold text-slate-800 mb-2">
         LED Display Systems for Every Traffic Scenario
       </h2>
-      <p class="text-slate-500 max-w-xl">
-        Tailored for highways, bridges, tunnels, and urban arterials.
-      </p>
+      <p class="text-slate-500 max-w-xl">Tailored for highways, bridges, tunnels, and urban arterials.</p>
     </div>
 
-
-    <!-- =================== PAGE 1 (12 Products) =================== -->
+    <!-- 12 Products (Page 1 already in part 1 logic) -->
     <div class="products-page grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-page="1">
 
-      <!-- Product cards 1 to 12 -->
-      <!-- 我示例写 4 个，你复制 3 轮（共 12 个），或我可以帮你填写 12 个不同名称 -->
-      <!-- Card 1 -->
+      <!-- (Sample 4 cards only – you can repeat 12 total) -->
       <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
         <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
           FULL-MATRIX DMS
         </div>
         <div class="p-5 flex flex-col gap-2">
           <h3 class="font-semibold text-slate-800">Full-Color Dynamic Message Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">
-            High-visibility full-matrix DMS for regulatory & traveler information.
-          </p>
+          <p class="text-sm text-slate-500 flex-1">High-visibility full-matrix displays.</p>
           <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
         </div>
       </article>
 
-      <!-- Card 2 -->
       <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+        <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200 text-xs uppercase tracking-widest flex items-center justify-center">
           LANE CONTROL
         </div>
         <div class="p-5 flex flex-col gap-2">
           <h3 class="font-semibold text-slate-800">Lane Control Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">
-            Red X / Green Arrow solutions for managed lanes & express routes.
-          </p>
+          <p class="text-sm text-slate-500 flex-1">Red X / Green Arrow signage.</p>
           <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
         </div>
       </article>
 
-      <!-- Card 3 -->
       <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+        <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200 text-xs uppercase tracking-widest flex items-center justify-center">
           PORTABLE VMS
         </div>
         <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Portable Variable Message Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">
-            Trailer-based VMS for temporary detours & work zones.
-          </p>
+          <h3 class="font-semibold text-slate-800">Portable Message Signs</h3>
+          <p class="text-sm text-slate-500 flex-1">Trailer-based VMS for work zones.</p>
           <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
         </div>
       </article>
 
-      <!-- Card 4 -->
       <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
+        <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200 text-xs uppercase tracking-widest flex items-center justify-center">
           CUSTOM LED
         </div>
         <div class="p-5 flex flex-col gap-2">
           <h3 class="font-semibold text-slate-800">Custom LED Solutions</h3>
-          <p class="text-sm text-slate-500 flex-1">
-            Custom displays for tolling, tunnels, parking & specialized signage.
-          </p>
+          <p class="text-sm text-slate-500 flex-1">Tailored systems for unique applications.</p>
           <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">Learn More</a>
         </div>
       </article>
 
-      <!-- 复制以上 4 卡片 → 共 12 个 -->
-      <!-- 我也可以自动帮你生成 12 个不同名字，只要你说一声 -->
-
     </div>
 
-
-    <!-- =================== PAGE 2 (6 Products) =================== -->
+    <!-- PAGE 2 -->
     <div class="products-page hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-page="2">
-
-      <!-- 卡片示例（6 个，我示例写两个，你可以复制） -->
-      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-indigo-600 to-purple-800 text-indigo-200 text-xs uppercase tracking-widest flex items-center justify-center">
+      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-indigo-600 to-purple-800 text-indigo-200 text-xs uppercase flex items-center justify-center">
           TUNNEL SIGN
         </div>
-        <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Tunnel LED Message Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">
-            High-contrast LED signs designed for low-light tunnel environments.
-          </p>
-          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">Learn More</a>
-        </div>
+        <h3 class="font-semibold text-slate-800 mt-4 mb-2">Tunnel LED Message Signs</h3>
+        <p class="text-sm text-slate-500 mb-4">High contrast for low-light environments.</p>
       </article>
 
-      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-emerald-600 to-teal-800 text-emerald-200 text-xs uppercase tracking-widest flex items-center justify-center">
+      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition fade-up">
+        <div class="h-32 bg-gradient-to-br from-emerald-600 to-teal-800 text-emerald-200 text-xs uppercase flex items-center justify-center">
           PARKING GUIDANCE
         </div>
-        <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Parking Availability Displays</h3>
-          <p class="text-sm text-slate-500 flex-1">
-            LED directional and capacity signs for parkades & municipal parking.
-          </p>
-          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
-        </div>
+        <h3 class="font-semibold text-slate-800 mt-4 mb-2">Parking Availability Signs</h3>
+        <p class="text-sm text-slate-500 mb-4">Capacity displays for garages.</p>
       </article>
-
-      <!-- 共 6 个，复制即可 -->
 
     </div>
 
-
-    <!-- PAGINATION BUTTONS -->
+    <!-- PAGINATION -->
     <div class="flex justify-end mt-10">
       <div class="flex gap-2">
         <button class="page-btn px-3 py-1.5 rounded-md border text-sm font-medium bg-blue-600 text-white" data-go="1">1</button>
@@ -354,72 +347,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Pagination Script -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const pages = document.querySelectorAll(".products-page");
-  const btns = document.querySelectorAll(".page-btn");
-
-  function showPage(n) {
-    pages.forEach(p => p.classList.add("hidden"));
-    document.querySelector(`.products-page[data-page="${n}"]`).classList.remove("hidden");
-
-    btns.forEach(b => b.classList.remove("bg-blue-600", "text-white"));
-    document.querySelector(`.page-btn[data-go="${n}"]`).classList.add("bg-blue-600", "text-white");
-  }
-
-  btns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      showPage(btn.dataset.go);
-      window.scrollTo({ top: document.getElementById("products").offsetTop - 80, behavior: "smooth" });
-    });
-  });
-
-  showPage(1); // 默认显示第一页
-});
-</script>
 
 
-
-
-<!-- ======================================================= -->
-<!-- ====================== PROJECTS ======================== -->
-<!-- ======================================================= -->
-
+<!-- ========================= PROJECTS ========================= -->
 <section id="projects" class="py-20 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
 
-    <div class="mb-12 fade-up">
-      <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Projects</div>
+    <a class="mb-12 fade-up">
+      <a href="./projects.html"
+           class="uppercase text-xs tracking-widest text-slate-500 mb-2">Projects</a>
       <h2 class="text-2xl font-semibold text-slate-800 mb-2">
         Field-Proven Installations
       </h2>
-      <p class="text-slate-500 max-w-xl">
-        Selected deployments showing real-world performance improvements.
-      </p>
+      <p class="text-slate-500 max-w-xl">Selected deployments showing real-world performance.</p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-up">
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition fade-up">
+      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
         <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Tollway · Illinois</div>
         <h3 class="font-semibold text-slate-800 mb-2">Illinois Tollway DMS Upgrade</h3>
-        <p class="text-sm text-slate-500 mb-3">Overhead DMS integrated with tolling & TMC systems.</p>
-        <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Project</a>
+        <p class="text-sm text-slate-500 mb-3">Overhead DMS integrated with tolling systems.</p>
       </article>
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition fade-up">
+      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
         <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Highway · Alberta</div>
         <h3 class="font-semibold text-slate-800 mb-2">Edmonton Corridor VMS Modernization</h3>
-        <p class="text-sm text-slate-500 mb-3">VMS and LCS supporting variable speed limits & incident response.</p>
-        <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Project</a>
+        <p class="text-sm text-slate-500 mb-3">Variable speed limits & incident response.</p>
       </article>
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition fade-up">
+      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
         <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Express Lanes · Ontario</div>
         <h3 class="font-semibold text-slate-800 mb-2">Toronto Express Lane Control</h3>
-        <p class="text-sm text-slate-500 mb-3">Lane-use control signs integrated with central operations.</p>
-        <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Project</a>
+        <p class="text-sm text-slate-500 mb-3">Lane-use signs integrated with central operations.</p>
       </article>
 
     </div>
@@ -428,10 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<!-- ======================================================= -->
-<!-- ========================= TECH ========================= -->
-<!-- ======================================================= -->
-
+<!-- ========================= ENGINEERING ========================= -->
 <section id="engineering" class="py-20">
   <div class="max-w-7xl mx-auto px-6">
 
@@ -459,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
         <div>
           <div class="font-semibold mb-1">High-Brightness Modules</div>
-          <div class="text-sm text-slate-500">Optimized optics for sunlight and harsh conditions.</div>
+          <div class="text-sm text-slate-500">Optimized optics for extreme conditions.</div>
         </div>
       </div>
 
@@ -467,31 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
         <div>
           <div class="font-semibold mb-1">Diagnostics & Monitoring</div>
-          <div class="text-sm text-slate-500">Remote feedback to reduce maintenance dispatches.</div>
-        </div>
-      </div>
-
-      <div class="flex gap-4 fade-up">
-        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
-        <div>
-          <div class="font-semibold mb-1">Standards-Based Control</div>
-          <div class="text-sm text-slate-500">Designed for NTCIP-based platforms.</div>
-        </div>
-      </div>
-
-      <div class="flex gap-4 fade-up">
-        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
-        <div>
-          <div class="font-semibold mb-1">Modular Hardware</div>
-          <div class="text-sm text-slate-500">Replaceable modules & power units.</div>
-        </div>
-      </div>
-
-      <div class="flex gap-4 fade-up">
-        <div class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-blue-600">✓</div>
-        <div>
-          <div class="font-semibold mb-1">Long-Term Support</div>
-          <div class="text-sm text-slate-500">Documentation & lifecycle support.</div>
+          <div class="text-sm text-slate-500">Remote feedback reduces field maintenance.</div>
         </div>
       </div>
 
@@ -501,10 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<!-- ======================================================= -->
-<!-- ========================= ABOUT ======================== -->
-<!-- ======================================================= -->
-
+<!-- ========================= ABOUT ========================= -->
 <section id="about" class="py-20 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
 
@@ -527,14 +457,6 @@ document.addEventListener("DOMContentLoaded", () => {
           bridges, tunnels, and urban networks.
         </p>
 
-        <div class="flex flex-wrap gap-3">
-          <a href="#about" class="px-4 py-2 border border-slate-300 rounded-full hover:border-blue-500 hover:text-blue-500 transition">
-            Learn More
-          </a>
-          <a href="#projects" class="px-4 py-2 border border-slate-300 rounded-full hover:border-blue-500 hover:text-blue-500 transition">
-            View References
-          </a>
-        </div>
       </div>
 
       <!-- Right -->
@@ -553,14 +475,9 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </section>
 
-
-
-<!-- ======================================================= -->
-<!-- ========================== CTA ========================= -->
-<!-- ======================================================= -->
-
+<!-- ========================= CTA ========================= -->
 <section id="quote" class="py-16 bg-slate-900 text-slate-200">
-  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-8">
 
     <div class="fade-up">
       <h3 class="text-xl font-semibold mb-2">Planning your next traffic display project?</h3>
@@ -570,10 +487,10 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="flex flex-wrap gap-3 fade-up">
-      <a href="#contact" class="px-5 py-3 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition">
+      <a href="./contact.html" class="px-5 py-3 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition">
         Request a Quote
       </a>
-      <a href="#support" class="px-5 py-3 border border-slate-500 rounded-full hover:border-blue-400 hover:text-blue-300 transition">
+      <a href="./contact.html" class="px-5 py-3 border border-slate-500 rounded-full hover:border-blue-400 hover:text-blue-300 transition">
         Contact Support
       </a>
     </div>
@@ -583,43 +500,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<!-- ======================================================= -->
-<!-- ======================== FOOTER ======================== -->
-<!-- ======================================================= -->
-
+<!-- ========================= FOOTER ========================= -->
 <footer class="bg-slate-950 text-slate-400 py-14">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-3 gap-10">
 
     <!-- Links -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">Links</div>
       <ul class="space-y-2 text-sm">
-
+        <li><a href="./index.html" class="hover:text-white transition">Main</a></li>
         <li><a href="./products.html" class="hover:text-white transition">Products</a></li>
         <li><a href="./projects.html" class="hover:text-white transition">Projects</a></li>
         <li><a href="./about.html" class="hover:text-white transition">About</a></li>
         <li><a href="./contact.html" class="hover:text-white transition">Contact</a></li>
 
-        <li><a href="index.html#engineering" class="hover:text-white transition">Engineering</a></li>
-        <li><a href="index.html#industries" class="hover:text-white transition">Industries</a></li>
+        <li><a href="./index.html#engineering" class="hover:text-white transition">Engineering</a></li>
+        <li><a href="./index.html#industries" class="hover:text-white transition">Industries</a></li>
       </ul>
     </div>
 
-    <!-- Contact Ledstar Inc. -->
+    <!-- Ledstar -->
     <div>
       <div class="text-slate-200 font-semibold mb-4">Ledstar Inc.</div>
       <p class="text-sm leading-relaxed">
         Email: info@ledstar.com<br>
         Phone: (905) 265-7800<br>
         131 Westcreek Drive<br>
-        Woodbridge, On<br>
+        Woodbridge, ON<br>
         L4L 9N6
       </p>
     </div>
 
-    <!-- Contact USA Ledstar Inc. -->
+    <!-- USA -->
     <div>
-      <div class="text-slate-200 font-semibold mb-4">USA Ledstar Inc</div>
+      <div class="text-slate-200 font-semibold mb-4">USA Ledstar Inc.</div>
       <p class="text-sm leading-relaxed">
         Email: info@ledstar.com<br>
         Phone: (407) 871-3738<br>
@@ -635,67 +549,71 @@ document.addEventListener("DOMContentLoaded", () => {
     © 2025 Ledstar Inc. · All rights reserved.
   </div>
 </footer>
-<!-- ================= MOBILE FULL-SCREEN MENU ================= -->
-<div id="mobileMenuOverlay"
-     class="fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50">
 
-  <div class="absolute inset-0 flex flex-col items-center justify-center space-y-6
-              text-white text-xl opacity-0 translate-y-3 transition-all duration-300"
-       id="mobileMenuContent">
 
-    <a href="./products.html" class="hover:text-blue-300">Products</a>
-    <a href="./projects.html" class="hover:text-blue-300">Projects</a>
-    <a href="./about.html" class="hover:text-blue-300">About</a>
-    <a href="./contact.html" class="hover:text-blue-300">Contact</a>
 
-    <a href="index.html#engineering" class="hover:text-blue-300">Engineering</a>
-    <a href="index.html#industries" class="hover:text-blue-300">Industries</a>
-
-    <a href="#quote"
-       class="mt-4 px-5 py-3 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition">
-      Request a Quote
-    </a>
-
-    <button id="closeMobileMenu" class="text-sm text-slate-300 underline mt-10 hover:text-white">
-      Close
-    </button>
-
-  </div>
-</div>
+<!-- ========================= SCRIPTS ========================= -->
+<script>
+/* fade-up animation */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".fade-up").forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) el.classList.add("show"); });
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  });
+});
+</script>
 
 <script>
-  const mobileBtn = document.getElementById("mobileMenuBtn");
-  const overlay = document.getElementById("mobileMenuOverlay");
-  const content = document.getElementById("mobileMenuContent");
-  const closeBtn = document.getElementById("closeMobileMenu");
+/* Drawer Script (from Contact Page) */
+const openBtn = document.getElementById("openDrawer");
+const closeBtn = document.getElementById("closeDrawer");
+const drawer = document.getElementById("rightDrawer");
+const overlay = document.getElementById("drawerOverlay");
 
-  function openMenu() {
-    overlay.classList.remove("pointer-events-none");
-    overlay.classList.add("opacity-100");
+function showDrawer(){
+  drawer.style.transform="translateX(0)";
+  overlay.style.opacity="1";
+  overlay.style.pointerEvents="auto";
+}
+function hideDrawer(){
+  drawer.style.transform="translateX(100%)";
+  overlay.style.opacity="0";
+  setTimeout(()=>overlay.style.pointerEvents="none",300);
+}
 
-    // 内容淡入
-    setTimeout(() => {
-      content.classList.remove("opacity-0", "translate-y-3");
-      content.classList.add("opacity-100", "translate-y-0");
-    }, 50);
+openBtn?.addEventListener("click",showDrawer);
+closeBtn?.addEventListener("click",hideDrawer);
+overlay?.addEventListener("click",hideDrawer);
+</script>
+
+<script>
+/* Products Pagination */
+document.addEventListener("DOMContentLoaded", () => {
+  const pages = document.querySelectorAll(".products-page");
+  const btns = document.querySelectorAll(".page-btn");
+
+  function showPage(n) {
+    pages.forEach(p => p.classList.add("hidden"));
+    document.querySelector(`.products-page[data-page="${n}"]`).classList.remove("hidden");
+
+    btns.forEach(b => b.classList.remove("bg-blue-600", "text-white"));
+    document.querySelector(`.page-btn[data-go="${n}"]`).classList.add("bg-blue-600", "text-white");
   }
 
-  function closeMenu() {
-    overlay.classList.add("pointer-events-none");
-    overlay.classList.remove("opacity-100");
-
-    // 内容淡出
-    content.classList.add("opacity-0", "translate-y-3");
-    content.classList.remove("opacity-100", "translate-y-0");
-  }
-
-  mobileBtn.addEventListener("click", openMenu);
-  closeBtn.addEventListener("click", closeMenu);
-
-  // 点击背景关闭
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeMenu();
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      showPage(btn.dataset.go);
+      window.scrollTo({
+        top: document.getElementById("products").offsetTop - 80,
+        behavior: "smooth"
+      });
+    });
   });
+
+  showPage(1); // default
+});
 </script>
 
 </body>

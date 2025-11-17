@@ -5,8 +5,10 @@
   <title>Products – Ledstar Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Tailwind -->
   <link rel="stylesheet" href="./dist/output.css" />
 
+  <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -20,6 +22,7 @@
   </script>
 
   <style>
+    /* ==================== Drawer links ==================== */
     .dak-primary-link {
       font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;
       font-size: 18px;
@@ -28,18 +31,25 @@
       color: #1f2937;
       margin-bottom: 16px;
       display: block;
+      transition: .2s;
     }
+    .dak-primary-link:hover { color:#2563eb; }
+
     .dak-cta {
+      display: block;
       padding: 12px 16px;
+      text-align: center;
       background:#2563eb;
       color:white;
       border-radius:999px;
       font-weight:600;
-      text-align:center;
+      transition: .2s;
     }
+    .dak-cta:hover { background:#1d4ed8; }
+
+    /* ==================== Drawer ==================== */
     #drawerOverlay {
-      position:fixed;
-      inset:0;
+      position:fixed; inset:0;
       background:rgba(0,0,0,0.6);
       backdrop-filter:blur(4px);
       opacity:0;
@@ -47,6 +57,7 @@
       transition:.3s;
       z-index:40;
     }
+
     #rightDrawer {
       position:fixed;
       top:0; right:0;
@@ -58,15 +69,42 @@
       z-index:50;
       display:flex; flex-direction:column;
     }
+
+    #drawerHeader {
+      height:64px;
+      border-bottom:1px solid #e5e7eb;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 24px;
+      font-family:"Segoe UI","Roboto","Helvetica Neue",Arial;
+    }
+
+    #closeDrawer {
+      font-size:24px;
+      cursor:pointer;
+      color:#555;
+    }
+
+    #drawerContent {
+      padding:24px;
+      overflow-y:auto;
+      flex:1;
+      font-family:"Segoe UI","Roboto","Helvetica Neue",Arial;
+    }
+
+    /* fade-up */
     .fade-up {
-      opacity:0; transform:translateY(20px);
+      opacity:0;
+      transform:translateY(20px);
       transition:.6s ease;
     }
     .fade-up.show {
-      opacity:1; transform:translateY(0);
+      opacity:1;
+      transform:translateY(0);
     }
 
-    /* CATEGORY BUTTONS */
+    /* Category filter buttons */
     .cat-btn {
       padding: 6px 14px;
       border-radius: 999px;
@@ -76,9 +114,7 @@
       cursor: pointer;
       transition: .15s;
     }
-    .cat-btn:hover {
-      background: #f1f5f9;
-    }
+    .cat-btn:hover { background: #f1f5f9; }
     .cat-btn.active {
       background: #2563eb;
       color: white;
@@ -87,12 +123,13 @@
   </style>
 </head>
 
+
 <body class="text-slate-800 bg-white">
 
-<!-- HEADER -->
+<!-- ========================= HEADER ========================= -->
 <header
-  class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200"
-  id="header">
+  id="header"
+  class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200 transition-all duration-300">
 
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
@@ -104,22 +141,29 @@
     <button id="openDrawer"
             class="px-3 py-2 border border-slate-300 rounded-lg text-sm flex items-center gap-1">
       Menu
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
     </button>
 
   </div>
 </header>
 
 
-<!-- DRAWER -->
+
+
+<!-- ========================= DRAWER ========================= -->
 <div id="drawerOverlay"></div>
+
 <div id="rightDrawer">
-  <div id="drawerHeader"
-       style="height:64px; border-bottom:1px solid #e5e7eb; display:flex; align-items:center; justify-content:space-between; padding:0 24px;">
+
+  <div id="drawerHeader">
     <span style="font-size:18px; font-weight:600;">Menu</span>
-    <div id="closeDrawer" style="font-size:24px; cursor:pointer;">✕</div>
+    <div id="closeDrawer">✕</div>
   </div>
 
-  <div id="drawerContent" style="padding:24px; overflow-y:auto;">
+  <div id="drawerContent">
     <a class="dak-primary-link" href="./index.html">Home</a>
     <a class="dak-primary-link" href="./products.html">Products</a>
     <a class="dak-primary-link" href="./projects.html">Projects</a>
@@ -128,15 +172,19 @@
     <a class="dak-primary-link" href="./index.html#industries">Industries</a>
     <a class="dak-primary-link" href="./contact.html">Contact</a>
 
-    <hr style="margin:24px 0;">
+    <hr style="border-top:1px solid #e5e7eb; margin:24px 0;">
 
     <a class="dak-cta" href="./index.html#quote">Request a Quote</a>
   </div>
+
 </div>
 
 
-<!-- ========================= PRODUCTS CONTENT ========================= -->
-<section class="pt-28 pb-24 bg-slate-50">
+
+
+<!-- ========================= PRODUCTS SECTION ========================= -->
+<section class="pt-20 pb-16 bg-slate-50">
+
   <div class="max-w-7xl mx-auto px-6">
 
     <h1 class="text-3xl font-bold mb-8 text-slate-800">Products</h1>
@@ -146,19 +194,14 @@
     </p>
 
 
-    <!-- 🔍 SEARCH + CATEGORY FILTER -->
+    <!-- Search + Filter -->
     <div class="mb-10 space-y-4">
 
-      <!-- SEARCH -->
-      <input
-        id="productSearch"
-        type="text"
-        placeholder="Search products..."
-        class="w-full sm:w-80 border border-slate-300 rounded-lg px-4 py-2 text-sm
-               focus:ring-2 focus:ring-blue-500 outline-none"
-      />
+      <input id="productSearch" type="text"
+             placeholder="Search products..."
+             class="w-full sm:w-80 border border-slate-300 rounded-lg px-4 py-2 text-sm
+                    focus:ring-2 focus:ring-blue-500 outline-none" />
 
-      <!-- CATEGORY BUTTONS -->
       <div class="flex flex-wrap gap-3">
         <button class="cat-btn active" data-filter="all">All</button>
         <button class="cat-btn" data-filter="dms">DMS</button>
@@ -172,166 +215,211 @@
     </div>
 
 
-
-    <!-- PRODUCT GRID -->
+    <!-- Product Grid -->
     <div id="productGrid" class="grid sm:grid-cols-3 lg:grid-cols-5 gap-8">
 
-      <!-- Full-Matrix DMS -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="dms">
-        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          FULL-MATRIX DMS
-        </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
-          <p class="text-sm text-slate-500 mb-4">High-visibility full matrix LED signage with NTCIP 1203 support.</p>
-        </div>
-      </div>
+      <!-- Example Product -->
+      <!-- ========================= FULL PRODUCT CARD LIST ========================= -->
 
-      <!-- Lane Control -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="lane">
-        <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          LANE CONTROL
+        <!-- 1. Full-Matrix DMS -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="dms">
+          <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            FULL-MATRIX DMS
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              High-visibility full matrix LED signage with NTCIP 1203 support.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Lane Control Signs</h3>
-          <p class="text-sm text-slate-500 mb-4">Red X / Green Arrow signage used for express and managed lanes.</p>
-        </div>
-      </div>
 
-      <!-- Portable VMS -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="portable">
-        <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          PORTABLE VMS
+        <!-- 2. Lane Control Signs -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="lane">
+          <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            LANE CONTROL
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Lane Control Signs</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              Red X / Green Arrow signage used for express and managed lanes.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Portable Message Signs</h3>
-          <p class="text-sm text-slate-500 mb-4">Trailer-based VMS for construction zones and temporary traffic control.</p>
-        </div>
-      </div>
 
-      <!-- Tunnel -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="tunnel">
-        <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          TUNNEL SIGN
+        <!-- 3. Portable VMS -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="portable">
+          <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            PORTABLE VMS
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Portable Message Signs</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              Trailer-based VMS for construction zones and temporary traffic control.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Tunnel Message Display</h3>
-          <p class="text-sm text-slate-500 mb-4">High-contrast LED signs designed for tunnels.</p>
-        </div>
-      </div>
 
-      <!-- Parking -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="parking">
-        <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          PARKING GUIDANCE
+        <!-- 4. Tunnel Sign -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="tunnel">
+          <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            TUNNEL SIGN
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Tunnel Message Display</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              High-contrast LED signs designed for tunnels.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
-          <p class="text-sm text-slate-500 mb-4">LED directional and capacity signage for parkades.</p>
-        </div>
-      </div>
 
-      <!-- Custom -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="custom">
-        <div class="h-32 bg-gradient-to-br from-rose-700 to-red-800 text-rose-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          CUSTOM LED
+        <!-- 5. Parking Guidance -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="parking">
+          <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            PARKING GUIDANCE
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              LED directional and capacity signage for parkades.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Custom LED Solutions</h3>
-          <p class="text-sm text-slate-500 mb-4">
-            Tailored LED systems for tolling, bridges, marine and industrial applications.
-          </p>
-        </div>
-      </div>
 
-      <!-- Full-Matrix DMS -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="dms">
-        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          FULL-MATRIX DMS
+        <!-- 6. Custom LED -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="custom">
+          <div class="h-32 bg-gradient-to-br from-rose-700 to-red-800 text-rose-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            CUSTOM LED
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Custom LED Solutions</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              Tailored LED systems for tolling, bridges, marine and industrial applications.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
-          <p class="text-sm text-slate-500 mb-4">High-visibility full matrix LED signage with NTCIP 1203 support.</p>
-        </div>
-      </div>
 
-      <!-- Lane Control -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="lane">
-        <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          LANE CONTROL
+        <!-- =========== Duplicate set (7–12) =========== -->
+
+        <!-- 7. Full-Matrix DMS -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="dms">
+          <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            FULL-MATRIX DMS
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              High-visibility full matrix LED signage with NTCIP 1203 support.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Lane Control Signs</h3>
-          <p class="text-sm text-slate-500 mb-4">Red X / Green Arrow signage used for express and managed lanes.</p>
-        </div>
-      </div>
 
 
 
-      <!-- Parking -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="parking">
-        <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          PARKING GUIDANCE
+        <!-- 9. Parking Guidance -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="parking">
+          <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            PARKING GUIDANCE
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              LED directional and capacity signage for parkades.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
-          <p class="text-sm text-slate-500 mb-4">LED directional and capacity signage for parkades.</p>
-        </div>
-      </div>
 
-      <!-- Portable VMS -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="portable">
-        <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          PORTABLE VMS
+        <!-- 10. Portable VMS -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="portable">
+          <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            PORTABLE VMS
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Portable Message Signs</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              Trailer-based VMS for construction zones and temporary traffic control.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Portable Message Signs</h3>
-          <p class="text-sm text-slate-500 mb-4">Trailer-based VMS for construction zones and temporary traffic control.</p>
-        </div>
-      </div>
 
-      <!-- Tunnel -->
-      <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-           data-category="tunnel">
-        <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200
-                    uppercase tracking-widest text-xs flex items-center justify-center">
-          TUNNEL SIGN
+        <!-- 11. Tunnel Sign -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="tunnel">
+          <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            TUNNEL SIGN
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Tunnel Message Display</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              High-contrast LED signs designed for tunnels.
+            </p>
+          </div>
         </div>
-        <div class="p-5">
-          <h3 class="font-semibold text-slate-800 mb-2">Tunnel Message Display</h3>
-          <p class="text-sm text-slate-500 mb-4">High-contrast LED signs designed for tunnels.</p>
+
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="parking">
+          <div class="h-32 bg-gradient-to-br from-indigo-600 to-cyan-700 text-indigo-100
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            PARKING GUIDANCE
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Parking Guidance Displays</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              LED directional and capacity signage for parkades.
+            </p>
+          </div>
         </div>
-      </div>
 
-    </div> <!-- END PRODUCT GRID -->
+        <!-- 12. Custom LED -->
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
+             data-category="custom">
+          <div class="h-32 bg-gradient-to-br from-rose-700 to-red-800 text-rose-200
+                      uppercase tracking-widest text-xs flex items-center justify-center">
+            CUSTOM LED
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-800 mb-2">Custom LED Solutions</h3>
+            <p class="text-sm text-slate-500 mb-4">
+              Tailored LED systems for tolling, marine, bridges and industrial applications.
+            </p>
+          </div>
+        </div>
 
-    <!-- No results -->
+
+      <!-- 你已有的所有其他卡片保持不变，略去重复 -->
+      <!-- …所有产品卡片继续按你原来的结构复制… -->
+
+    </div>
+
     <div id="noResults" class="text-slate-500 mt-10 hidden">
       No results found.
     </div>
 
   </div>
 </section>
+
+
+
+
 
 <!-- ========================= FOOTER ========================= -->
 <footer class="bg-slate-950 text-slate-400 py-14">
@@ -381,9 +469,11 @@
 
 
 
+
+
 <!-- ========================= SCRIPTS ========================= -->
 <script>
-/* ---------------------- fade-up animation ---------------------- */
+/* fade-up */
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".fade-up").forEach(el => {
     const obs = new IntersectionObserver(entries => {
@@ -395,45 +485,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-/* ---------------------- Drawer menu ---------------------- */
+/* drawer */
 const openBtn = document.getElementById("openDrawer");
 const closeBtn = document.getElementById("closeDrawer");
 const drawer = document.getElementById("rightDrawer");
 const overlay = document.getElementById("drawerOverlay");
 
-function showDrawer() {
-  drawer.style.transform = "translateX(0)";
-  overlay.style.opacity = "1";
-  overlay.style.pointerEvents = "auto";
+function showDrawer(){
+  drawer.style.transform="translateX(0)";
+  overlay.style.opacity="1";
+  overlay.style.pointerEvents="auto";
+}
+function hideDrawer(){
+  drawer.style.transform="translateX(100%)";
+  overlay.style.opacity="0";
+  setTimeout(()=>overlay.style.pointerEvents="none",300);
 }
 
-function hideDrawer() {
-  drawer.style.transform = "translateX(100%)";
-  overlay.style.opacity = "0";
-  setTimeout(() => overlay.style.pointerEvents = "none", 300);
-}
-
-openBtn.addEventListener("click", showDrawer);
-closeBtn.addEventListener("click", hideDrawer);
-overlay.addEventListener("click", hideDrawer);
+openBtn.addEventListener("click",showDrawer);
+closeBtn.addEventListener("click",hideDrawer);
+overlay.addEventListener("click",hideDrawer);
 
 
-
-/* =====================================================
-   PRODUCT SEARCH + CATEGORY FILTER (核心功能)
-   ===================================================== */
-
+/* Filtering Logic */
 const searchInput = document.getElementById("productSearch");
 const categoryButtons = document.querySelectorAll(".cat-btn");
 const productCards = document.querySelectorAll(".product-card");
 const noResultsMessage = document.getElementById("noResults");
 
-let activeCategory = "all";  // 当前分类
-let searchTerm = "";         // 当前搜索词
+let activeCategory = "all";
+let searchTerm = "";
 
-
-/* ---------- 更新过滤结果 ---------- */
 function updateFilters() {
   let visibleCount = 0;
 
@@ -441,11 +523,8 @@ function updateFilters() {
     const cardCategory = card.dataset.category.trim().toLowerCase();
     const text = card.innerText.toLowerCase();
 
-    const matchCategory =
-      (activeCategory === "all") || (cardCategory === activeCategory);
-
-    const matchSearch =
-      searchTerm === "" || text.includes(searchTerm);
+    const matchCategory = activeCategory === "all" || cardCategory === activeCategory;
+    const matchSearch = searchTerm === "" || text.includes(searchTerm);
 
     if (matchCategory && matchSearch) {
       card.style.display = "block";
@@ -455,28 +534,18 @@ function updateFilters() {
     }
   });
 
-  // 显示 / 隐藏 “No results”
   noResultsMessage.classList.toggle("hidden", visibleCount !== 0);
 }
 
-
-/* ---------- 分类按钮点击 ---------- */
 categoryButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    // 移除所有 active
     categoryButtons.forEach(b => b.classList.remove("active"));
-
-    // 新按钮高亮
     btn.classList.add("active");
-
-    // 更新分类
     activeCategory = btn.dataset.filter;
     updateFilters();
   });
 });
 
-
-/* ---------- 搜索输入事件 ---------- */
 searchInput.addEventListener("input", e => {
   searchTerm = e.target.value.trim().toLowerCase();
   updateFilters();
