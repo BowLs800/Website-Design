@@ -131,8 +131,8 @@
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
     <div class="flex items-center gap-2">
-      <div class="w-5 h-5 rounded-md bg-gradient-to-br from-blue-600 to-cyan-400"></div>
-      <span class="font-semibold tracking-widest uppercase">Ledstar</span>
+                <img src="./images/LedStar%20logo.avif" alt="Ledstar Logo" class="h-8 w-auto">
+
     </div>
 
     <button id="openDrawer"
@@ -171,6 +171,62 @@
   </div>
 </div>
 
+<!-- INFINITE TOP CAROUSEL -->
+<!-- PROJECT CAROUSEL -->
+<div class="relative w-full overflow-hidden h-[420px] select-none">
+
+  <!-- Track -->
+  <div id="carouselTrack"
+       class="flex flex-nowrap transition-transform duration-700 ease-in-out">
+
+    <!-- Slide Template (replace images + titles) -->
+
+    <div class="carousel-slide relative w-full h-[420px] flex-shrink-0">
+      <img src="./images/Projects/prev/CFX 1.jpg"
+           class="w-full h-full object-cover" />
+      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-5">
+        <h3 class="text-white text-lg font-semibold">
+          Central Florida Expressway (CFX)
+        </h3>
+      </div>
+    </div>
+
+    <div class="carousel-slide relative w-full h-[420px] flex-shrink-0">
+      <img src="./images/Projects/prev/2.jpg"
+           class="w-full h-full object-cover" />
+      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-5">
+        <h3 class="text-white text-lg font-semibold">
+          Tunnel Message Display Upgrade
+        </h3>
+      </div>
+    </div>
+
+    <div class="carousel-slide relative w-full h-[420px] flex-shrink-0">
+      <img src="./images/Projects/prev/3.jpg"
+           class="w-full h-full object-cover" />
+      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-5">
+        <h3 class="text-white text-lg font-semibold">
+          Portable VMS Fleet Deployment
+        </h3>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BUTTONS -->
+  <button onclick="prevSlide()"
+    class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full">
+    ‹
+  </button>
+
+  <button onclick="nextSlide()"
+    class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full">
+    ›
+  </button>
+</div>
+
+
+
 
 <!-- ========================= PROJECTS SECTION ========================= -->
 <section class="pt-28 pb-24 bg-slate-50">
@@ -188,7 +244,14 @@
 
       <!-- Project Card -->
       <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
-        <div class="h-40 bg-gradient-to-br from-blue-700 to-slate-900 rounded-t-2xl"></div>
+
+
+        <img src="./images/websitePic1.avif"
+             class="h-40 w-full object-cover cursor-pointer"
+             onclick="openImageModal('./images/websitePic1.avif')"
+
+        />
+
         <div class="p-6">
           <h3 class="font-semibold text-lg text-slate-800 mb-2">Highway DMS Replacement</h3>
           <p class="text-sm text-slate-500 mb-4">
@@ -199,18 +262,26 @@
 
       <!-- Project Card -->
       <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
-        <div class="h-40 bg-gradient-to-br from-green-600 to-emerald-700 rounded-t-2xl"></div>
-        <div class="p-6">
-          <h3 class="font-semibold text-lg text-slate-800 mb-2">Managed Lane Control System</h3>
+          <img src="./images/Projects/prev/CFX%201.jpg"
+               class="h-40 w-full object-cover cursor-pointer"  alt="cfx1"
+               onclick="openImageModal('./images/Projects/prev/CFX%201.jpg')"
+
+          />
+          <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Central Florida Expressway (CFX), Orlando, Florida</h3>
           <p class="text-sm text-slate-500 mb-4">
-            Installation of Red X / Green Arrow lane control systems for urban express routes.
+            Advanced Traffic Management (ATM) system. Full color, high resolution LCS.<br>
+            Installed 2024-2025
           </p>
         </div>
       </div>
 
       <!-- Project Card -->
       <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
-        <div class="h-40 bg-gradient-to-br from-purple-700 to-slate-800 rounded-t-2xl"></div>
+        <img src="./images/Projects/prev/2.jpg"
+             class="h-40 w-full object-cover cursor-pointer"
+             onclick="openImageModal('./images/Projects/prev/2.jpg')"
+        />
         <div class="p-6">
           <h3 class="font-semibold text-lg text-slate-800 mb-2">Tunnel Message Display Upgrade</h3>
           <p class="text-sm text-slate-500 mb-4">
@@ -221,7 +292,10 @@
 
       <!-- Project Card -->
       <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
-        <div class="h-40 bg-gradient-to-br from-yellow-600 to-amber-700 rounded-t-2xl"></div>
+          <img src="./images/Projects/prev/3.jpg"
+                class="h-40 w-full object-cover cursor-pointer"
+                onclick="openImageModal('./images/Projects/prev/3.jpg')"
+          />
         <div class="p-6">
           <h3 class="font-semibold text-lg text-slate-800 mb-2">Portable VMS Fleet Deployment</h3>
           <p class="text-sm text-slate-500 mb-4">
@@ -232,7 +306,10 @@
 
       <!-- Project Card -->
       <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
-        <div class="h-40 bg-gradient-to-br from-indigo-600 to-cyan-600 rounded-t-2xl"></div>
+        <img src="./images/Projects/prev/4.jpg"
+             class="h-40 w-full object-cover cursor-pointer"
+             onclick="openImageModal('./images/Projects/prev/4.jpg')"
+        />
         <div class="p-6">
           <h3 class="font-semibold text-lg text-slate-800 mb-2">Parking Guidance LED System</h3>
           <p class="text-sm text-slate-500 mb-4">
@@ -243,8 +320,9 @@
 
       <!-- Project Card -->
       <div class="bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
-        <div class="h-40 bg-gradient-to-br from-red-700 to-rose-700 rounded-t-2xl"></div>
-        <div class="p-6">
+          <img src="./images/Projects/prev/5.jpg"
+            class="h-40 w-full object-cover cursor-pointer"
+            onclick="openImageModal('./images/Projects/prev/5.jpg')"/>        <div class="p-6">
           <h3 class="font-semibold text-lg text-slate-800 mb-2">Custom LED Engineering</h3>
           <p class="text-sm text-slate-500 mb-4">
             Tailored LED solutions for tolling, industrial facilities, bridges, and marine applications.
@@ -305,6 +383,16 @@
   </div>
 </footer>
 
+<!-- Image Lightbox Modal for projects-->
+<div id="imageModal"
+     onclick="closeImageModal()"
+     class="fixed inset-0 hidden bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
+
+  <img id="imageModalImg"
+       src=""
+       class="max-w-4xl max-h-[85vh] rounded-lg shadow-xl border border-white/20">
+</div>
+
 
 
 <!-- ========================= SCRIPTS ========================= -->
@@ -340,6 +428,111 @@
   closeBtn.addEventListener("click",hideDrawer);
   overlay.addEventListener("click",hideDrawer);
 </script>
+
+<!--script for projects zoom-in window -->
+<script>
+  function openImageModal(src) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imageModalImg");
+    modalImg.src = src;
+    modal.classList.remove("hidden");
+  }
+
+  function closeImageModal() {
+    document.getElementById("imageModal").classList.add("hidden");
+  }
+</script>
+
+
+<!-- ======== TOP CAROUSEL ======== -->
+<script>
+let track = document.getElementById("carouselTrack");
+let slides = Array.from(document.querySelectorAll(".carousel-slide"));
+
+let index = 1;
+
+// Clone first & last
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+track.appendChild(firstClone);
+track.insertBefore(lastClone, slides[0]);
+
+slides = Array.from(document.querySelectorAll(".carousel-slide"));
+
+let slideWidth = slides[0].clientWidth;
+
+// Start on slide 1
+track.style.transform = `translateX(${-slideWidth * index}px)`;
+
+/* ========================= BUTTON CONTROL ========================= */
+function nextSlide() {
+  if (index >= slides.length - 1) return;
+  index++;
+  track.style.transition = "transform .6s ease";
+  track.style.transform = `translateX(${-slideWidth * index}px)`;
+}
+
+function prevSlide() {
+  if (index <= 0) return;
+  index--;
+  track.style.transition = "transform .6s ease";
+  track.style.transform = `translateX(${-slideWidth * index}px)`;
+}
+
+/* ========================= RESET WHEN HITTING CLONES ========================= */
+track.addEventListener("transitionend", () => {
+  if (slides[index] === firstClone) {
+    track.style.transition = "none";
+    index = 1;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+  }
+
+  if (slides[index] === lastClone) {
+    track.style.transition = "none";
+    index = slides.length - 2;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+  }
+});
+
+/* ========================= TOUCH / SWIPE CONTROL ========================= */
+let startX = 0;
+let isDragging = false;
+
+track.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+track.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+});
+
+track.addEventListener("touchend", (e) => {
+  if (!isDragging) return;
+  let endX = e.changedTouches[0].clientX;
+
+  let diff = endX - startX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff < 0) nextSlide();
+    else prevSlide();
+  }
+
+  isDragging = false;
+});
+
+/* ========================= RESIZE FIX ========================= */
+window.addEventListener("resize", () => {
+  slideWidth = slides[0].clientWidth;
+  track.style.transition = "none";
+  track.style.transform = `translateX(${-slideWidth * index}px)`;
+});
+</script>
+
+
+
+
 
 </body>
 </html>

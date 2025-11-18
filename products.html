@@ -134,8 +134,8 @@
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
     <div class="flex items-center gap-2">
-      <div class="w-5 h-5 rounded-md bg-gradient-to-br from-blue-600 to-cyan-400"></div>
-      <span class="font-semibold tracking-widest uppercase">Ledstar</span>
+                <img src="./images/LedStar%20logo.avif" alt="Ledstar Logo" class="h-8 w-auto">
+
     </div>
 
     <button id="openDrawer"
@@ -222,27 +222,37 @@
       <!-- ========================= FULL PRODUCT CARD LIST ========================= -->
 
         <!-- 1. Full-Matrix DMS -->
-        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-             data-category="dms">
-          <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200
-                      uppercase tracking-widest text-xs flex items-center justify-center">
-            FULL-MATRIX DMS
-          </div>
+        <!--             data-id="dms-fullcolor1"-->
+
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up cursor-pointer"
+             data-category="dms"
+             onclick="openProductModal('product1')">
+
+          <img src="./images/FreewayTime 600x216.avif"
+               alt="Full-Matrix DMS"
+               class="h-32 w-full object-cover rounded-t-2xl" />
+
           <div class="p-5">
-            <h3 class="font-semibold text-slate-800 mb-2">Full-Color Dynamic Message Signs</h3>
+            <h3 class="font-semibold text-slate-800 mb-2">
+              Full-Color Dynamic Message Signs
+            </h3>
             <p class="text-sm text-slate-500 mb-4">
               High-visibility full matrix LED signage with NTCIP 1203 support.
             </p>
           </div>
+
         </div>
 
+
+
+<!--        cursor-pointer-->
         <!-- 2. Lane Control Signs -->
-        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up"
-             data-category="lane">
-          <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200
-                      uppercase tracking-widest text-xs flex items-center justify-center">
-            LANE CONTROL
-          </div>
+        <div class="product-card bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up cursor-pointer"
+             data-category="lane"
+             onclick="openProductModal('product2')">
+          <img src="./images/Leds.avif"
+               alt="Lane Control"
+               class="h-32 w-full object-cover rounded-t-2xl" />
           <div class="p-5">
             <h3 class="font-semibold text-slate-800 mb-2">Lane Control Signs</h3>
             <p class="text-sm text-slate-500 mb-4">
@@ -468,6 +478,86 @@
 </footer>
 
 
+<!-- ========================= CENTER MODAL ========================= -->
+
+<!-- Dark overlay -->
+<div id="modalOverlay"
+     class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-40"></div>
+
+<!-- Modal core -->
+<div id="modalBox"
+     class="fixed inset-0 flex items-center justify-center z-50 hidden">
+
+  <div class="bg-white rounded-2xl shadow-2xl w-11/12 max-w-lg min-w-[300px] p-6 relative animate-fadeIn">
+
+    <!-- Close button -->
+    <button onclick="closeProductModal()"
+            class="absolute top-3 right-3 text-2xl text-slate-500 hover:text-black">
+      &times;
+    </button>
+
+    <!-- Title -->
+    <h2 id="modalTitle" class="text-xl font-semibold mb-4 text-slate-800"></h2>
+
+    <!-- Image -->
+    <img id="modalImage"
+         src=""
+         class="w-full rounded-lg mb-4 object-cover" />
+
+    <!-- Content -->
+    <p id="modalText" class="text-sm text-slate-600 leading-relaxed"></p>
+
+  </div>
+
+</div>
+
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn {
+  animation: fadeIn .25s ease-out;
+}
+</style>
+
+<!-- ========================= MODAL SCRIPT ========================= -->
+<script>
+    const productModalData = {
+      product1: {
+        title: "Full-Color Dynamic Message Signs",
+        image: "./images/FreewayTime 600x216.avif",
+        text: "High-visibility full matrix LED signage with NTCIP 1203 support."
+      },
+      product2: {
+        title: "Lane Control Signs",
+        image: "./images/Leds.avif",
+        text: "Red X / Green Arrow signage used for express and managed lanes."
+      }
+
+    };
+
+    /* ---------- 打开弹窗 ---------- */
+    function openProductModal(id) {
+      const d = productModalData[id];
+
+      document.getElementById("modalTitle").innerText = d.title;
+      document.getElementById("modalImage").src = d.image;
+      document.getElementById("modalText").innerText = d.text;
+
+      document.getElementById("modalOverlay").classList.remove("hidden");
+      document.getElementById("modalBox").classList.remove("hidden");
+    }
+
+    /* ---------- 关闭弹窗 ---------- */
+    function closeProductModal() {
+      document.getElementById("modalOverlay").classList.add("hidden");
+      document.getElementById("modalBox").classList.add("hidden");
+    }
+
+    /* 点击背景也关闭 */
+    document.getElementById("modalOverlay").addEventListener("click", closeProductModal);
+</script>
 
 
 
