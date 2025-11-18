@@ -371,41 +371,85 @@
 
 
 
-<!-- ========================= PROJECTS ========================= -->
-<section id="projects" class="py-20 bg-slate-50">
+<!-- ========================= PROJECTS SECTION ========================= -->
+<section id="projects" class="pt-28 pb-24 bg-slate-50">
+
   <div class="max-w-7xl mx-auto px-6">
 
-    <div class="text-sm uppercase tracking-wider text-slate-400 mb-2">Projects</div>
+    <a href="./projects.html"
+         class="uppercase text-xs tracking-widest text-slate-500 mb-2 hover:text-blue-600 transition">
+        Projects
+    </a>
+
+
     <h2 class="text-3xl font-bold text-slate-800 mb-3">Field-Proven Installations</h2>
     <p class="text-slate-600 mb-10">
       Selected deployments showing real-world performance.
     </p>
 
-    <!-- 自动宽度 + 左对齐 + 保留右侧留白 -->
-    <div class="flex flex-wrap gap-8 justify-start">
+    <!-- ⭐ GRID 卡片容器：自动等宽且平均分布 -->
+    <div class="grid gap-10
+                sm:grid-cols-2
+                lg:grid-cols-3
+                xl:grid-cols-4
+                justify-items-start">
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
-        <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Tollway · Illinois</div>
-        <h3 class="font-semibold text-slate-800 mb-2">Illinois Tollway DMS Upgrade</h3>
-        <p class="text-sm text-slate-500">Overhead DMS integrated with tolling systems.</p>
-      </article>
+      <!-- Project Card 1 -->
+      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <img src="./images/Projects/prev/CFX 1.jpg"
+             class="h-40 w-full object-cover" alt="CFX 1"/>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">
+            Central Florida Expressway (CFX), Orlando, Florida
+          </h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Advanced Traffic Management (ATM) system. Full color, high resolution LCS.<br>
+            Installed 2024–2025
+          </p>
+        </div>
+      </div>
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
-        <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Highway · Alberta</div>
-        <h3 class="font-semibold text-slate-800 mb-2">Edmonton Corridor VMS Modernization</h3>
-        <p class="text-sm text-slate-500">Variable speed limits & incident response.</p>
-      </article>
+      <!-- Project Card 2 -->
+      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <img src="./images/Projects/prev/2.jpg"
+             class="h-40 w-full object-cover" alt="Tunnel Display"/>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Tunnel Message Display Upgrade</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            High-contrast tunnel LED signage designed for low-visibility environments.
+          </p>
+        </div>
+      </div>
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition">
-        <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">Express Lanes · Ontario</div>
-        <h3 class="font-semibold text-slate-800 mb-2">Toronto Express Lane Control</h3>
-        <p class="text-sm text-slate-500">Lane-use signs integrated with central operations.</p>
-      </article>
+      <!-- Project Card 3 -->
+      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <img src="./images/Projects/prev/3.jpg"
+             class="h-40 w-full object-cover" alt="Portable VMS"/>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Portable VMS Fleet Deployment</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Trailer-based portable VMS fleet supporting municipalities & work zones.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project Card 4 -->
+      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+        <img src="./images/Projects/prev/4.jpg"
+             class="h-40 w-full object-cover" alt="Parking Guidance"/>
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-slate-800 mb-2">Parking Guidance LED System</h3>
+          <p class="text-sm text-slate-500 mb-4">
+            Integrated capacity and directional LED guidance signage for parking structures.
+          </p>
+        </div>
+      </div>
 
     </div>
 
   </div>
 </section>
+
 
 
 
@@ -456,34 +500,55 @@
 
 
 <!-- ========================= ABOUT ========================= -->
-<section id="about" class="py-20 bg-slate-50">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="about"
+  class="py-20 bg-cover bg-center bg-no-repeat relative"
+  style="background-image: url('./images/Projects/daktronics-background.png');">
+
+  <!-- 半透明遮罩（保持可读性，可调整透明度） -->
+  <div class="absolute inset-0 bg-white/70"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
 
     <div class="grid md:grid-cols-2 gap-12 items-center">
 
       <!-- Left -->
       <div class="fade-up">
-        <div class="uppercase text-xs tracking-widest text-slate-500 mb-3">About Ledstar</div>
+        <div class="uppercase text-xs tracking-widest text-slate-600 mb-3">About Ledstar</div>
         <h2 class="text-2xl font-semibold text-slate-800 mb-4">
           Focused on Transportation Since Day One
         </h2>
 
-        <p class="text-slate-500 mb-4">
+        <p class="text-slate-700 mb-4">
           For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
           Dynamic Message Signs and traffic display systems.
         </p>
 
-        <p class="text-slate-500 mb-6">
+        <p class="text-slate-700 mb-4">
+          For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
+          Dynamic Message Signs and traffic display systems.
+        </p>
+        <p class="text-slate-700 mb-4">
+          For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
+          Dynamic Message Signs and traffic display systems.
+        </p>
+
+        <p class="text-slate-700 mb-6">
+          From specification to long-term support, we deliver reliable systems for highways,
+          bridges, tunnels, and urban networks.
+        <p class="text-slate-700 mb-6">
+          From specification to long-term support, we deliver reliable systems for highways,
+          bridges, tunnels, and urban networks.
+
+        <p class="text-slate-700 mb-6">
           From specification to long-term support, we deliver reliable systems for highways,
           bridges, tunnels, and urban networks.
         </p>
-
       </div>
 
       <!-- Right -->
       <div class="fade-up">
-        <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">At a Glance</div>
-        <p class="text-slate-500 text-sm leading-relaxed">
+        <div class="uppercase text-xs tracking-widest text-slate-600 mb-2">At a Glance</div>
+        <p class="text-slate-700 text-sm leading-relaxed">
           • 20+ years in LED traffic displays<br>
           • North American transportation focus<br>
           • Custom solutions for agencies & integrators<br>
@@ -492,7 +557,6 @@
       </div>
 
     </div>
-
   </div>
 </section>
 
