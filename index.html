@@ -235,7 +235,8 @@
     <div class="mb-12">
       <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">Why Ledstar</div>
       <h2 class="text-2xl font-semibold text-slate-800 mb-2">
-        Engineered for Transportation, Built for Reliability
+        Engineered for <span class="text-blue-600">Transportation</span>,
+        Built for <span class="text-orange-600">Reliability</span>
       </h2>
       <p class="text-slate-500 max-w-xl">
         From harsh Canadian winters to busy urban corridors, our LED systems are designed
@@ -289,7 +290,8 @@
     </div>
 
     <!-- 12 Products (Page 1 already in part 1 logic) -->
-    <div class="products-page grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-page="1">
+<!--      lg:grid-cols-3-->
+    <div class="products-page grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6" data-page="1">
 
       <!-- (Sample 4 cards only – you can repeat 12 total) -->
       <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
@@ -339,7 +341,7 @@
     </div>
 
     <!-- PAGE 2 -->
-    <div class="products-page hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-page="2">
+    <div class="products-page hidden grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-4 gap-6" data-page="2">
       <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition fade-up">
         <div class="h-32 bg-gradient-to-br from-indigo-600 to-purple-800 text-indigo-200 text-xs uppercase flex items-center justify-center">
           TUNNEL SIGN
@@ -373,82 +375,97 @@
 
 <!-- ========================= PROJECTS SECTION ========================= -->
 <section id="projects" class="pt-28 pb-24 bg-slate-50">
-
   <div class="max-w-7xl mx-auto px-6">
 
     <a href="./projects.html"
-         class="uppercase text-xs tracking-widest text-slate-500 mb-2 hover:text-blue-600 transition">
-        Projects
+       class="uppercase text-xs tracking-widest text-slate-500 mb-2 hover:text-blue-600 transition">
+      Projects
     </a>
 
-
-    <h2 class="text-3xl font-bold text-slate-800 mb-3">Field-Proven Installations</h2>
+    <h2 class="text-3xl font-bold text-slate-800 mb-3">
+      Field-Proven Installations
+    </h2>
     <p class="text-slate-600 mb-10">
       Selected deployments showing real-world performance.
     </p>
 
-    <!-- ⭐ GRID 卡片容器：自动等宽且平均分布 -->
-    <div class="grid gap-10
-                sm:grid-cols-2
-                lg:grid-cols-3
-                xl:grid-cols-4
-                justify-items-start">
+    <!-- GRID -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-      <!-- Project Card 1 -->
-      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+      <!-- Project Card -->
+      <div class="relative group cursor-pointer">
         <img src="./images/Projects/prev/CFX 1.jpg"
-             class="h-40 w-full object-cover" alt="CFX 1"/>
-        <div class="p-6">
-          <h3 class="font-semibold text-lg text-slate-800 mb-2">
-            Central Florida Expressway (CFX), Orlando, Florida
-          </h3>
-          <p class="text-sm text-slate-500 mb-4">
-            Advanced Traffic Management (ATM) system. Full color, high resolution LCS.<br>
-            Installed 2024–2025
-          </p>
+             class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3
+            transform transition duration-500 group-hover:scale-105">
+          <div class="text-white font-semibold text-lg">
+            CFX – Orlando, Florida
+          </div>
         </div>
       </div>
 
-      <!-- Project Card 2 -->
-      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+      <div class="relative group cursor-pointer">
         <img src="./images/Projects/prev/2.jpg"
-             class="h-40 w-full object-cover" alt="Tunnel Display"/>
-        <div class="p-6">
-          <h3 class="font-semibold text-lg text-slate-800 mb-2">Tunnel Message Display Upgrade</h3>
-          <p class="text-sm text-slate-500 mb-4">
-            High-contrast tunnel LED signage designed for low-visibility environments.
-          </p>
+             class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3
+            transform transition duration-500 group-hover:scale-105">
+          <div class="text-white font-semibold text-lg">
+            Tunnel Message Display Upgrade
+          </div>
         </div>
       </div>
 
-      <!-- Project Card 3 -->
-      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+      <div class="relative group cursor-pointer">
         <img src="./images/Projects/prev/3.jpg"
-             class="h-40 w-full object-cover" alt="Portable VMS"/>
-        <div class="p-6">
-          <h3 class="font-semibold text-lg text-slate-800 mb-2">Portable VMS Fleet Deployment</h3>
-          <p class="text-sm text-slate-500 mb-4">
-            Trailer-based portable VMS fleet supporting municipalities & work zones.
-          </p>
+             class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3
+            transform transition duration-500 group-hover:scale-105">
+          <div class="text-white font-semibold text-lg">
+            Portable VMS Fleet Deployment
+          </div>
         </div>
       </div>
 
-      <!-- Project Card 4 -->
-      <div class="w-full bg-white border border-slate-200 rounded-2xl shadow hover:shadow-lg transition fade-up">
+      <div class="relative group cursor-pointer">
         <img src="./images/Projects/prev/4.jpg"
-             class="h-40 w-full object-cover" alt="Parking Guidance"/>
-        <div class="p-6">
-          <h3 class="font-semibold text-lg text-slate-800 mb-2">Parking Guidance LED System</h3>
-          <p class="text-sm text-slate-500 mb-4">
-            Integrated capacity and directional LED guidance signage for parking structures.
-          </p>
+             class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3
+            transform transition duration-500 group-hover:scale-105">
+          <div class="text-white font-semibold text-lg">
+            Parking Guidance LED System
+          </div>
         </div>
+      </div>
+
+      <div class="relative group cursor-pointer">
+        <img src="./images/Projects/prev/5.jpg"
+             class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3
+            transform transition duration-500 group-hover:scale-105">
+          <div class="text-white font-semibold text-lg">
+            Custom LED Engineering
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group cursor-pointer">
+        <img src="./images/websitePic2.avif"
+             class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" />
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3
+            transform transition duration-500 group-hover:scale-105">
+          <div class="text-white font-semibold text-lg">
+            Highway Deployment – Canada
+          </div>
+        </div>
+
+
       </div>
 
     </div>
 
   </div>
 </section>
+
 
 
 
@@ -502,7 +519,7 @@
 <!-- ========================= ABOUT ========================= -->
 <section id="about"
   class="py-20 bg-cover bg-center bg-no-repeat relative"
-  style="background-image: url('./images/Projects/daktronics-background.png');">
+  style="background-image: url('./images/Projects/daktronicsbg.png');">
 
   <!-- 半透明遮罩（保持可读性，可调整透明度） -->
   <div class="absolute inset-0 bg-white/70"></div>
@@ -517,12 +534,6 @@
         <h2 class="text-2xl font-semibold text-slate-800 mb-4">
           Focused on Transportation Since Day One
         </h2>
-
-        <p class="text-slate-700 mb-4">
-          For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
-          Dynamic Message Signs and traffic display systems.
-        </p>
-
         <p class="text-slate-700 mb-4">
           For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
           Dynamic Message Signs and traffic display systems.
@@ -531,15 +542,17 @@
           For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
           Dynamic Message Signs and traffic display systems.
         </p>
-
-        <p class="text-slate-700 mb-6">
+        <p class="text-slate-700 mb-4">
+          For more than two decades, Ledstar has been dedicated to designing and manufacturing LED
+          Dynamic Message Signs and traffic display systems.
+        </p>
+        <p class="text-slate-700 mb-4">
           From specification to long-term support, we deliver reliable systems for highways,
           bridges, tunnels, and urban networks.
-        <p class="text-slate-700 mb-6">
+        <p class="text-slate-700 mb-4">
           From specification to long-term support, we deliver reliable systems for highways,
           bridges, tunnels, and urban networks.
-
-        <p class="text-slate-700 mb-6">
+        <p class="text-slate-700 mb-4">
           From specification to long-term support, we deliver reliable systems for highways,
           bridges, tunnels, and urban networks.
         </p>
@@ -700,6 +713,9 @@ document.addEventListener("DOMContentLoaded", () => {
   showPage(1); // default
 });
 </script>
+
+<script src="./js/main.js"></script>
+
 
 </body>
 </html>
