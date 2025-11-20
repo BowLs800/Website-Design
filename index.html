@@ -275,101 +275,104 @@
 
 <!-- ========================= PRODUCTS ========================= -->
 <section id="products" class="py-20">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 bg-slate-50">
+    <!-- Product Cards Wrapper -->
+    <div class="bg-slate-500 shadow-lg rounded-xl p-8">
+        <!-- Header -->
+        <div class="mb-12 text-center fade-up text-slate-500">
+          <h2 class="text-3xl font-bold text-slate-800 mb-3">
+            LED Display Systems by Category
+          </h2>
 
-    <div class="mb-12 fade-up">
-      <a href="./products.html"
-         class="uppercase text-xs tracking-widest text-slate-500 mb-2 hover:text-blue-600 transition">
-        Products
-      </a>
-
-      <h2 class="text-2xl font-semibold text-slate-800 mb-2">
-        LED Display Systems for Every Traffic Scenario
-      </h2>
-      <p class="text-slate-500 max-w-xl">Tailored for highways, bridges, tunnels, and urban arterials.</p>
-    </div>
-
-    <!-- 12 Products (Page 1 already in part 1 logic) -->
-<!--      lg:grid-cols-3-->
-    <div class="products-page grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6" data-page="1">
-
-      <!-- (Sample 4 cards only – you can repeat 12 total) -->
-      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-blue-700 to-slate-900 text-blue-200 text-xs uppercase tracking-widest flex items-center justify-center">
-          FULL-MATRIX DMS
+          <!-- Filters -->
+          <div class="flex justify-center gap-8 mt-6 text-white text-sm font-medium">
+            <button class="product-filter active" data-filter="all">All</button>
+            <button class="product-filter" data-filter="dms">DMS</button>
+            <button class="product-filter" data-filter="lane">Lane Control</button>
+            <button class="product-filter" data-filter="portable">Portable VMS</button>
+            <button class="product-filter" data-filter="custom">Custom LED</button>
+          </div>
+            <!-- Thin separator line -->
+            <div class="w-full max-w-4xl mx-auto mt-4 h-px bg-white/50"></div>
         </div>
-        <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Full-Color Dynamic Message Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">High-visibility full-matrix displays.</p>
-          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
-        </div>
-      </article>
 
-      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-green-700 to-emerald-900 text-green-200 text-xs uppercase tracking-widest flex items-center justify-center">
-          LANE CONTROL
-        </div>
-        <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Lane Control Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">Red X / Green Arrow signage.</p>
-          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
-        </div>
-      </article>
 
-      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-yellow-600 to-amber-700 text-yellow-200 text-xs uppercase tracking-widest flex items-center justify-center">
-          PORTABLE VMS
-        </div>
-        <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Portable Message Signs</h3>
-          <p class="text-sm text-slate-500 flex-1">Trailer-based VMS for work zones.</p>
-          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">View Details</a>
-        </div>
-      </article>
+      <!-- Grid -->
+      <div id="product-grid"
+           class="grid grid-cols-1  sm:grid-cols-3 gap-8">
 
-      <article class="product-card bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-purple-700 to-slate-800 text-purple-200 text-xs uppercase tracking-widest flex items-center justify-center">
-          CUSTOM LED
+        <!-- CARD 1 -->
+        <div class="product-card group cursor-pointer h-[260px]"
+             data-category="dms">
+          <div class="relative w-full h-full overflow-hidden rounded-xl shadow-md">
+            <img src="./images/FreewayTime 600x216.avif"
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 text-white font-semibold text-lg">
+              Full-Color DMS
+            </div>
+          </div>
         </div>
-        <div class="p-5 flex flex-col gap-2">
-          <h3 class="font-semibold text-slate-800">Custom LED Solutions</h3>
-          <p class="text-sm text-slate-500 flex-1">Tailored systems for unique applications.</p>
-          <a href="#" class="text-blue-600 text-sm hover:text-blue-700 underline underline-offset-4">Learn More</a>
+
+        <!-- CARD 2 -->
+        <div class="product-card group cursor-pointer h-[260px]"
+             data-category="lane">
+          <div class="relative w-full h-full overflow-hidden rounded-xl shadow-md">
+            <img src="./images/websitePic1.avif"
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 text-white font-semibold text-lg">
+              Lane Control Signs
+            </div>
+          </div>
         </div>
-      </article>
 
-    </div>
-
-    <!-- PAGE 2 -->
-    <div class="products-page hidden grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-4 gap-6" data-page="2">
-      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-indigo-600 to-purple-800 text-indigo-200 text-xs uppercase flex items-center justify-center">
-          TUNNEL SIGN
+        <!-- CARD 3 -->
+        <div class="product-card group cursor-pointer h-[260px]"
+             data-category="portable">
+          <div class="relative w-full h-full overflow-hidden rounded-xl shadow-md">
+            <img src="./images/websitePic2.avif"
+                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 text-white font-semibold text-lg">
+              Portable VMS
+            </div>
+          </div>
         </div>
-        <h3 class="font-semibold text-slate-800 mt-4 mb-2">Tunnel LED Message Signs</h3>
-        <p class="text-sm text-slate-500 mb-4">High contrast for low-light environments.</p>
-      </article>
 
-      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-lg transition fade-up">
-        <div class="h-32 bg-gradient-to-br from-emerald-600 to-teal-800 text-emerald-200 text-xs uppercase flex items-center justify-center">
-          PARKING GUIDANCE
-        </div>
-        <h3 class="font-semibold text-slate-800 mt-4 mb-2">Parking Availability Signs</h3>
-        <p class="text-sm text-slate-500 mb-4">Capacity displays for garages.</p>
-      </article>
-
-    </div>
-
-    <!-- PAGINATION -->
-    <div class="flex justify-end mt-10">
-      <div class="flex gap-2">
-        <button class="page-btn px-3 py-1.5 rounded-md border text-sm font-medium bg-blue-600 text-white" data-go="1">1</button>
-        <button class="page-btn px-3 py-1.5 rounded-md border text-sm font-medium text-slate-600 hover:bg-slate-200" data-go="2">2</button>
       </div>
     </div>
 
   </div>
 </section>
+
+
+<!-- ⭐ JS：分类过滤 -->
+<script>
+document.querySelectorAll('.product-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+
+    // Filter highlight
+    document.querySelectorAll('.product-filter')
+      .forEach(b => b.classList.remove('text-blue-600', 'font-semibold'));
+    btn.classList.add('text-blue-600', 'font-semibold');
+
+    // Card filtering
+    document.querySelectorAll('.product-card').forEach(card => {
+      const category = card.dataset.category;
+
+      if (filter === 'all' || category === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+</script>
+
 
 
 
